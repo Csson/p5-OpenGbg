@@ -1,9 +1,13 @@
 package OpenGbg;
 
-use strict;
-use warnings;
-use 5.10.1;
+use 5.20.0;
+use Moose;
+use Kavorka 'around';
+use OpenGbg::Handler;
 
+around BUILDARGS($orig: $class, @args) {
+    return OpenGbg::Handler->new(@args);
+}
 
 1;
 
