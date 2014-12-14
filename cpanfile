@@ -1,5 +1,7 @@
 requires 'perl', '5.014000';
 
+
+requires 'XML::Rabbit';
 requires 'Config::Any';
 requires 'DateTime';
 requires 'DateTime::Format::HTTP';
@@ -15,6 +17,7 @@ requires 'Syntax::Feature::Qs';
 requires 'Type::Tiny';
 requires 'Types::Path::Tiny';
 requires 'Throwable::X';
-requires 'XML::Rabbit';
 
-
+on 'build' => sub {
+	requires 'XML::LibXML';
+}
