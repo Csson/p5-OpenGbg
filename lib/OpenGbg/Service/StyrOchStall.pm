@@ -19,13 +19,9 @@ class OpenGbg::Service::StyrOchStall  using Moose {
 
     method get_bike_station($id) {
         my $url = "GetBikeStation/$id/%s?format=xml";
-        my $response = $self->getter($url);
+        my $response = $self->getter($url, 'get_bike_station');
 
-        if(!$response->{'success'}) {
-            BadResponseFromService->throw(service => 'get_bike_station', url => $response->{'url'}, status => $response->{'status'}, reason => $response->{'reason'});
-        }
-
-        return GetBikeStation->new(xml => $response->{'content'});
+        return GetBikeStation->new(xml => $response);
     }
 
     method get_bike_stations(:$lat = undef, :$long = undef, :$radius = undef) {
@@ -36,13 +32,9 @@ class OpenGbg::Service::StyrOchStall  using Moose {
         }
 
         my $url = "GetBikeStations/%s?$geo&format=xml";
-        my $response = $self->getter($url);
+        my $response = $self->getter($url, 'get_bike_stations');
 
-        if(!$response->{'success'}) {
-            BadResponseFromService->throw(service => 'get_bike_stations', url => $response->{'url'}, status => $response->{'status'}, reason => $response->{'reason'});
-        }
-
-        return GetBikeStations->new(xml => $response->{'content'});
+        return GetBikeStations->new(xml => $response);
     }
 }
 
@@ -86,6 +78,10 @@ Its keys are C<lat> and C<long>, and optionally C<radius> (in metres).
 If C<%geography> is absent no geographic filtering is done.
 
 Returns a L<GetBikeStations|OpenGbg::Service::StyrOchStall::GetBikeStations> object.
+
+=head1 EXCEPTIONS
+
+If the http call to the web service fails, a L<BadResponseFromService|OpenGbg::Exception::BadResponseFromService> exception is thrown. Use L<Try::Tiny> to catch.
 
 =head1 AUTHOR
 
