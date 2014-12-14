@@ -2,11 +2,15 @@ package OpenGbg;
 
 use 5.20.0;
 use Moose;
-use Kavorka 'around';
+use Kavorka qw/around after/;
 use OpenGbg::Handler;
 
+has handler => (
+    is => 'ro',
+);
+
 around BUILDARGS($orig: $class, @args) {
-    return OpenGbg::Handler->new(@args);
+    $class->$orig(handler => OpenGbg::Handler->new(@args));
 }
 
 1;

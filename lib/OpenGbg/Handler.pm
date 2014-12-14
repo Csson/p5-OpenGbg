@@ -4,6 +4,10 @@ class OpenGbg::Handler
  with OpenGbg::Service::StyrOchStall
 using Moose {
 
+    use File::HomeDir;
+    use HTTP::Tiny;
+    use Path::Tiny;
+
     has key => (
         is => 'ro',
         isa => Str,
@@ -31,7 +35,7 @@ using Moose {
         return HTTP::Tiny->new(agent => 'OpenGbg-Browser');
     }
 
-    method styr_och_stall {
+    method _build_styr_och_stall {
         return OpenGbg::Service::StyrOchStall->new(handler => $self);
     }
 }

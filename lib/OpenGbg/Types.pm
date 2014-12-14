@@ -4,7 +4,8 @@ use Moops;
 library  OpenGbg::Types
 
 extends  Types::Standard,
-         Types::Path::Tiny
+         Types::Path::Tiny,
+         Types::DateTime
 
 #declares Connection,
 #         Line,
@@ -15,7 +16,7 @@ extends  Types::Standard,
 #         Station,
 #         Step,
 #         Transfer
-#    {
+    {
 #
 #    class_type Connection   => { class => 'Map::Metro::Graph::Connection' };
 #    class_type Line         => { class => 'Map::Metro::Graph::Line' };
@@ -27,3 +28,5 @@ extends  Types::Standard,
 #    class_type Step         => { class => 'Map::Metro::Graph::Step' };
 #    class_type Transfer     => { class => 'Map::Metro::Graph::Transfer' };
 }
+
+1;
