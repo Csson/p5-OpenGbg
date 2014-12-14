@@ -56,7 +56,7 @@ Once you have your api key you can use it in two different ways:
 
     my $opengbg = OpenGbg->new(key => 'secret-api-key');
 
-2. You can save it in i file named C<.opengbg.ini> in your homedir:
+2. You can save it in a file named C<.opengbg.ini> in your homedir:
 
     [API]
     key = secret-api-key
