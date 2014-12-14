@@ -12,5 +12,7 @@ requires 'MooseX::AttributeShortcuts';
 requires 'Path::Tiny';
 requires 'Sub::Exporter';
 requires 'Syntax::Feature::Qs';
+requries 'Type::Tiny';
+requires 'Types::Path::Tiny';
 requires 'Throwable::X';
 requires 'XML::Rabbit';
