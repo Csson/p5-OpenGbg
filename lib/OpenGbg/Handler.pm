@@ -1,13 +1,13 @@
 use OpenGbg::Standard::Moops;
 
 class OpenGbg::Handler
- with OpenGbg::Service::StyrOchStall
 using Moose {
 
     use Config::Any;
     use File::HomeDir;
     use HTTP::Tiny;
     use Path::Tiny;
+    use OpenGbg::Service::StyrOchStall;
 
     has config_file => (
         is => 'ro',

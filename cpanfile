@@ -13,9 +13,9 @@ requires 'Moose';
 requires 'MooseX::AttributeShortcuts';
 requires 'Path::Tiny';
 requires 'Sub::Exporter';
-#requires 'Syntax::Feature::Qs';
+requires 'Syntax::Feature::Qs';
 requires 'Type::Tiny';
-requires 'Type::DateTime';
+requires 'Types::DateTime';
 requires 'Types::Path::Tiny';
 requires 'Throwable::X';
 
