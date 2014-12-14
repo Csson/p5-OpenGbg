@@ -2,7 +2,8 @@ use OpenGbg::Standard::Moops;
 
 class OpenGbg::Service::StyrOchStall  using Moose {
 
-    use OpenGbg::Service::StyrOchStall::GetBikeStations;
+    use aliased 'OpenGbg::Service::StyrOchStall::GetBikeStation';
+    use aliased 'OpenGbg::Service::StyrOchStall::GetBikeStations';
     use aliased 'OpenGbg::Exception::BadResponseFromService';
     with 'OpenGbg::Service::Getter';
 
@@ -15,6 +16,17 @@ class OpenGbg::Service::StyrOchStall  using Moose {
         isa => Str,
         default => 'StyrOchStall/v0.1/',
     );
+
+    method get_bike_station($id) {
+        my $url = "GetBikeStation/$id/%s?format=xml";
+        my $response = $self->getter($url);
+
+        if(!$response->{'success'}) {
+            BadResponseFromService->throw(service => 'get_bike_station', url => $response->{'url'}, status => $response->{'status'}, reason => $response->{'reason'});
+        }
+
+        return GetBikeStation->new(xml => $response->{'content'});
+    }
 
     method get_bike_stations(:$lat = undef, :$long = undef, :$radius = undef) {
         my $geo = '';
@@ -30,6 +42,62 @@ class OpenGbg::Service::StyrOchStall  using Moose {
             BadResponseFromService->throw(service => 'get_bike_stations', url => $response->{'url'}, status => $response->{'status'}, reason => $response->{'reason'});
         }
 
-        return OpenGbg::Service::StyrOchStall::GetBikeStations->new(xml => $response->{'content'});
+        return GetBikeStations->new(xml => $response->{'content'});
     }
 }
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+OpenGbg::Service::StyrOchStall - Data on rent-a-bike stations
+
+=head1 SYNOPSIS
+
+    my $styr_och_stall = OpenGbg->new->styr_och_stall;
+    my $service = $styr_och_stall->get_bike_stations;
+
+    print $service->stations->get(0)->to_text;
+
+=head1 DESCRIPTION
+
+Styr och ställ is Gothenburg's bike share program. This service has a couple of methods to get data about the bike stations.
+
+L<Official documentation|http://data.goteborg.se/Pages/Webservice.aspx?ID=10>
+
+See L<OpenGbg> for general information.
+
+=head1 METHODS
+
+=head2 get_bike_station($id)
+
+C<$id> is the station id for the station you want to get information about. You'll need to first have fetched the stations with L<get_bike_stations|/"get_bike_stations(%geography)"> to get the id's.
+
+Returns a L<GetBikeStation|OpenGbg::Service::StyrOchStall::GetBikeStation> object.
+
+
+=head2 get_bike_stations(%geography)
+
+C<%geography> is an optional hash used to limit returned stations to a geographical area.
+Its keys are C<lat> and C<long>, and optionally C<radius> (in metres).
+
+If C<%geography> is absent no geographic filtering is done.
+
+Returns a L<GetBikeStations|OpenGbg::Service::StyrOchStall::GetBikeStations> object.
+
+=head1 AUTHOR
+
+Erik Carlsson E<lt>info@code301.comE<gt>
+
+=head1 COPYRIGHT
+
+Copyright 2014 - Erik Carlsson
+
+=head1 LICENSE
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut

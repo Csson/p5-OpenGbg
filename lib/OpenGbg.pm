@@ -33,7 +33,8 @@ OpenGbg - An interface to the Open Data API of Gothenburg
 
 OpenGbg is a way to connect to and use the open data published by the city of L<Gothenburg|https://en.wikipedia.org/wiki/Gothenburg>.
 
-The open data homepage is located at L<http://data.goteborg.se/>. All documentation is in Swedish.
+The open data homepage is located at L<http://data.goteborg.se/>. All official documentation is in Swedish, but the license agreement is published
+in English L<here|https://gbgdata.wordpress.com/goopen/>.
 
 To use the API you need to get a free api key.
 
@@ -41,10 +42,9 @@ To use the API you need to get a free api key.
 
 =head2 new()
 
-Only possible argument is C<key>, see L<authenticate|AUTHENTICATE>.
+Only possible argument is C<key>, see L<authenticate|/"AUTHENTICATE">.
 
 Returns a L<OpenGbg::Handler> object. This object is not interesting in itself, see each service under L<services|/"SERVICES"> for usage.
-
 
 =head1 AUTHENTICATE
 
@@ -65,6 +65,12 @@ The following services are currently implemented in this distribution:
 
 L<StyrOchStall|OpenGbg::Service::StyrOchStall> - Data on rent-a-bike stations
 
+=head1 NAMING
+
+All names related to the services are de-camelized. For example, the service 'GetBikeStations' is called like this:
+
+    my $gbg = OpenGbg->new;
+    my $stations = $gbg->get_bike_stations;
 
 =head1 BUGS & ISSUES
 

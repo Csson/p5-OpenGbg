@@ -1,6 +1,6 @@
 use 5.14.0;
 
-package OpenGbg::Service::StyrOchStall::GetBikeStations;
+package OpenGbg::Service::StyrOchStall::GetBikeStation;
 
 use OpenGbg::Types -types;
 use XML::Rabbit::Root;
@@ -31,6 +31,10 @@ sub _build_timestamp($self) {
     return DateTime::Format::HTTP->parse_datetime($self->_timestamp);
 }
 
+sub station($self) {
+    return $self->stations->get(0);
+}
+
 finalize_class();
 
 1;
@@ -41,15 +45,15 @@ __END__
 
 =head1 NAME
 
-OpenGbg::Service::StyrOchStall::GetBikeStations
+OpenGbg::Service::StyrOchStall::GetBikeStation
 
 =head1 SYNOPSIS
 
     my $styr_och_stall = OpenGbg->new->styr_och_stall;
-    my $service = $styr_och_stall->get_bike_stations;
+    my $service = $styr_och_stall->get_bike_station(1);
 
     printf 'Time: %s', $service->timestamp;
-    print $service->stations->get(5)->to_text;
+    print $service->station->to_text;
 
 =head1 METHODS
 
@@ -57,9 +61,9 @@ OpenGbg::Service::StyrOchStall::GetBikeStations
 
 Returns the timestamp given in the response as a L<DateTime> object.
 
-=head2 stations
+=head2 station
 
-Returns the list of stations in the response in a L<OpenGbg::Service::StyrOchStall::Stations> object.
+Returns the L<OpenGbg::Service::StyrOchStall::Station> object given in the response.
 
 
 =head1 AUTHOR
