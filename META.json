@@ -54,7 +54,6 @@
             "MooseX::AttributeShortcuts" : "0",
             "Path::Tiny" : "0",
             "Sub::Exporter" : "0",
-            "Syntax::Feature::Qs" : "0",
             "Throwable::X" : "0",
             "Type::Tiny" : "0",
             "Types::Path::Tiny" : "0",

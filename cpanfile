@@ -13,7 +13,7 @@ requires 'Moose';
 requires 'MooseX::AttributeShortcuts';
 requires 'Path::Tiny';
 requires 'Sub::Exporter';
-requires 'Syntax::Feature::Qs';
+#requires 'Syntax::Feature::Qs';
 requires 'Type::Tiny';
 requires 'Types::Path::Tiny';
 requires 'Throwable::X';
