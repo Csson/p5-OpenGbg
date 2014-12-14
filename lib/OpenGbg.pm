@@ -22,11 +22,11 @@ OpenGbg - An interface to the Open Data API of Gothenburg
 =head1 SYNOPSIS
 
     use OpenGbg;
-    
+
     my $opengbg = OpenGbg->new(key => 'secret-api-key')->handler;
 
     $service = $opengbg->styr_och_stall->get_bike_stations;
-    
+
     print $service->stations->get(0)->to_text;
 
 =head1 DESCRIPTION

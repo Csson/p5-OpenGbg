@@ -44,7 +44,6 @@ using Moose {
         isa => Str,
         default => 'http://data.goteborg.se/',
     );
-    
     method _build_config_file {
         my $home = File::HomeDir->my_home;
         my $conf_file = path($home)->child('.opengbg.ini');

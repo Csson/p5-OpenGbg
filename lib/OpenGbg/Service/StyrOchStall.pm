@@ -15,8 +15,6 @@ class OpenGbg::Service::StyrOchStall  using Moose {
         isa => Str,
         default => 'StyrOchStall/v0.1/',
     );
-    
-    
 
     method get_bike_stations(:$lat = undef, :$long = undef, :$radius = undef) {
         my $geo = '';

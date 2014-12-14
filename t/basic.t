@@ -2,8 +2,9 @@ use strict;
 use Test::More;
 use OpenGbg;
 
-# replace with the actual test
-ok 1;
+my $open = OpenGbg->new;
+
+is ref $open, 'OpenGbg::Handler', 'Right object';
 
 done_testing;
 
