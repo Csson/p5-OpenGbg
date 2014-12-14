@@ -2,11 +2,15 @@
 
 OpenGbg - An interface to the Open Data API of Gothenburg
 
+<div>
+    <p><a style="float: left;" href="https://travis-ci.org/Csson/p5-OpenGbg"><img src="https://travis-ci.org/Csson/p5-OpenGbg.svg?branch=master">&nbsp;</a>
+</div>
+
 # SYNOPSIS
 
     use OpenGbg;
 
-    my $opengbg = OpenGbg->new(key => 'secret-api-key')->handler;
+    my $opengbg = OpenGbg->new(key => 'secret-api-key');
 
     $service = $opengbg->styr_och_stall->get_bike_stations;
 

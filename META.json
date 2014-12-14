@@ -40,16 +40,12 @@
          "requires" : {
             "Config::Any" : "0",
             "DateTime::Format::HTTP" : "0",
-            "Eponymous::Hash" : "0",
             "File::HomeDir" : "0",
             "HTTP::Tiny" : "0",
             "Kavorka" : "0",
-            "List::AllUtils" : "0",
-            "List::Compare" : "0",
             "Moops" : "0",
             "Moose::Role" : "0",
             "MooseX::AttributeShortcuts" : "0",
-            "MooseX::SetOnce" : "0",
             "Path::Tiny" : "0",
             "Role::HasMessage::Errf" : "0",
             "Role::HasPayload::Merged" : "0",
@@ -61,10 +57,9 @@
             "XML::Rabbit::Root" : "0",
             "aliased" : "0",
             "base" : "0",
-            "experimental" : "0",
             "feature" : "0",
             "namespace::clean" : "0",
-            "perl" : "v5.20.0",
+            "perl" : "v5.14.0",
             "syntax" : "0",
             "warnings" : "0"
          }
