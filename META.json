@@ -24,6 +24,11 @@
       ]
    },
    "prereqs" : {
+      "build" : {
+         "requires" : {
+            "XML::LibXML" : "0"
+         }
+      },
       "configure" : {
          "requires" : {
             "Module::Build::Tiny" : "0.039"
