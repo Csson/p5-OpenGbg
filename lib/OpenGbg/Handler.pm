@@ -68,3 +68,77 @@ using Moose {
         return OpenGbg::Service::StyrOchStall->new(handler => $self);
     }
 }
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+OpenGbg::Handler - The entry point to all OpenGbg services.
+
+=head1 SYNOPSIS
+
+    # $handler is a OpenGbg::Handler object
+    my $handler = OpenGbg->new(key => 'secret-api-key');
+
+    $response = $handler->styr_och_stall->get_bike_stations;
+
+=head1 DESCRIPTION
+
+OpenGbg::Handler is the class from where calls to all web services are made.
+
+=head1 METHOD
+
+=head2 styr_och_stall()
+
+Returns a L<OpenGbg::Service::StyrOchStall> object.
+
+=head1 AUTHENTICATE
+
+Once you have your api key you can use it in two different ways:
+
+1. You can give it in the constructor:
+
+    my $opengbg = OpenGbg->new(key => 'secret-api-key');
+
+2. You can save it in a file named C<.opengbg.ini> in your homedir:
+
+    [API]
+    key = secret-api-key
+
+=head1 SERVICES
+
+The following services are currently implemented in this distribution:
+
+L<StyrOchStall|OpenGbg::Service::StyrOchStall> - Data on rent-a-bike stations
+
+=head1 NAMING
+
+All names related to the services are de-camelized. For example, the service 'GetBikeStations' is called like this:
+
+    my $gbg = OpenGbg->new;
+    my $stations = $gbg->get_bike_stations;
+
+=head1 BUGS & ISSUES
+
+The repository and issue tracker is at: L<https://github.com/Csson/p5-OpenGbg>
+
+=head1 DISCLAIMER
+
+This is not an official distribution.
+
+=head1 AUTHOR
+
+Erik Carlsson E<lt>info@code301.comE<gt>
+
+=head1 COPYRIGHT
+
+Copyright 2014 - Erik Carlsson
+
+=head1 LICENSE
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut

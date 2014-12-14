@@ -41,3 +41,76 @@ package OpenGbg::Exception {
 }
 
 1;
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+OpenGbg::Exception - When something fails
+
+=head1 SYNOPSIS
+
+    use Safe::Isa;
+    use Try::Tiny:
+    my $handler = OpenGbg->new(key => 'secret-api-key');
+
+    my $response;
+    try {
+        $response = $handler->styr_och_stall->get_bike_stations;
+    }
+    catch {
+        my $error = $_;
+        if($error->$_does('OpenGbg::Exception')) {
+            $error->out;
+        }
+        else {
+            die $_;
+        }
+    };
+
+=head1 DESCRIPTION
+
+OpenGbg::Exception is the role all exceptions do.
+
+=head1 ATTRIBUTES
+
+=head2 info
+
+An error message containing all information the thrown exception has about the error.
+
+=head1 METHODS
+
+=head2 out
+
+Prints C<info> and a stack trace.
+
+=head2 fatal
+
+Dies.
+
+    catch {
+        my $error = $_;
+        if($error->$_does('OpenGbg::Exception')) {
+            $error->out->fatal;
+        }
+        else {
+            die $_;
+        }
+    };
+
+=head1 AUTHOR
+
+Erik Carlsson E<lt>info@code301.comE<gt>
+
+=head1 COPYRIGHT
+
+Copyright 2014 - Erik Carlsson
+
+=head1 LICENSE
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
