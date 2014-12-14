@@ -19,7 +19,7 @@ class OpenGbg::Exception::BadResponseFromService with OpenGbg::Exception using M
         isa => Str,
         traits => [Payload],
     );
-    has service_name => (
+    has service => (
         is => 'ro',
         isa => Str,
         traits => [Payload],
@@ -28,6 +28,6 @@ class OpenGbg::Exception::BadResponseFromService with OpenGbg::Exception using M
         is => 'ro',
         isa => Str,
         lazy => 1,
-        default => q{Bad response from %{service_name} at %{url}. Status: %{status} Reason: %{reason}},
+        default => q{Bad response from %{service}s at %{url}s. Status: %{status}s Reason: %{reason}s},
     );
 }

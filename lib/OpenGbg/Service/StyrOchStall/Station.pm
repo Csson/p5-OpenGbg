@@ -1,4 +1,4 @@
-use feature ':5.20';
+use 5.14.0;
 
 package OpenGbg::Service::StyrOchStall::Station;
 
