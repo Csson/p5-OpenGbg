@@ -42,7 +42,7 @@ To use the API you need to get a free api key.
 
 =head2 new()
 
-Only possible argument is C<key>, see L<authenticate|/"AUTHENTICATE">.
+Takes an optional key-value pair, the key is C<key> and the value your api key, see L<authenticate|/"AUTHENTICATE">.
 
 Returns a L<OpenGbg::Handler> object. This object is not interesting in itself, see each service under L<services|/"SERVICES"> for usage.
 
