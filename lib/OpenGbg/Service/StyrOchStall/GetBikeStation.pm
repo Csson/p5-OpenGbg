@@ -3,10 +3,10 @@ use 5.14.0;
 package OpenGbg::Service::StyrOchStall::GetBikeStation;
 
 use OpenGbg::Types -types;
+use Kavorka;
 use XML::Rabbit::Root;
 use DateTime::Format::HTTP;
 use MooseX::AttributeShortcuts;
-use experimental 'signatures';
 
 has xml => (
     is => 'ro',
@@ -27,12 +27,12 @@ has timestamp => (
     builder => 1,
 );
 
-sub _build_timestamp($self) {
+method _build_timestamp {
     return DateTime::Format::HTTP->parse_datetime($self->_timestamp);
 }
 
-sub station($self) {
-    return $self->stations->get(0);
+method station {
+    return $self->stations->get_by_index(0);
 }
 
 finalize_class();

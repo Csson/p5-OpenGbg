@@ -6,7 +6,7 @@ use OpenGbg::Types -types;
 use XML::Rabbit::Root;
 use DateTime::Format::HTTP;
 use MooseX::AttributeShortcuts;
-use experimental 'signatures';
+use Kavorka;
 
 has xml => (
     is => 'ro',
@@ -27,7 +27,7 @@ has timestamp => (
     builder => 1,
 );
 
-sub _build_timestamp($self) {
+method _build_timestamp {
     return DateTime::Format::HTTP->parse_datetime($self->_timestamp);
 }
 

@@ -3,10 +3,9 @@ use 5.14.0;
 package OpenGbg::Service::Getter {
 
     use Moose::Role;
+    use Kavorka;
 
-    sub getter {
-        my $self = shift;
-        my $service_url = shift;
+    method getter($service_url) {
         $service_url = sprintf $service_url, $self->handler->key;
         my $url = $self->handler->base . $self->service_base . $service_url;
 
