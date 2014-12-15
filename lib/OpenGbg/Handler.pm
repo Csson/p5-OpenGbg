@@ -7,6 +7,7 @@ using Moose {
     use File::HomeDir;
     use HTTP::Tiny;
     use Path::Tiny;
+    use OpenGbg::Service::AirQuality;
     use OpenGbg::Service::StyrOchStall;
 
     has config_file => (
@@ -33,6 +34,11 @@ using Moose {
         is => 'ro',
         builder => 1,
         handles => ['get'],
+    );
+    has air_quality => (
+        is => 'ro',
+        lazy => 1,
+        builder => 1,
     );
     has styr_och_stall => (
         is => 'ro',
@@ -64,6 +70,9 @@ using Moose {
         return HTTP::Tiny->new(agent => 'OpenGbg-Browser');
     }
 
+    method _build_air_quality {
+        return OpenGbg::Service::AirQuality->new(handler => $self);
+    }
     method _build_styr_och_stall {
         return OpenGbg::Service::StyrOchStall->new(handler => $self);
     }
@@ -90,43 +99,15 @@ OpenGbg::Handler is the class from where calls to all web services are made.
 
 =head1 METHOD
 
+
+=head2 air_quality()
+
+Returns a L<OpenGbg::Service::AirQuality> object.
+
+
 =head2 styr_och_stall()
 
 Returns a L<OpenGbg::Service::StyrOchStall> object.
-
-=head1 AUTHENTICATE
-
-Once you have your api key you can use it in two different ways:
-
-1. You can give it in the constructor:
-
-    my $opengbg = OpenGbg->new(key => 'secret-api-key');
-
-2. You can save it in a file named C<.opengbg.ini> in your homedir:
-
-    [API]
-    key = secret-api-key
-
-=head1 SERVICES
-
-The following services are currently implemented in this distribution:
-
-L<StyrOchStall|OpenGbg::Service::StyrOchStall> - Data on rent-a-bike stations
-
-=head1 NAMING
-
-All names related to the services are de-camelized. For example, the service 'GetBikeStations' is called like this:
-
-    my $gbg = OpenGbg->new;
-    my $stations = $gbg->get_bike_stations;
-
-=head1 BUGS & ISSUES
-
-The repository and issue tracker is at: L<https://github.com/Csson/p5-OpenGbg>
-
-=head1 DISCLAIMER
-
-This is not an official distribution.
 
 =head1 AUTHOR
 
