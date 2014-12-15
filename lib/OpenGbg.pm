@@ -46,7 +46,7 @@ To use the API you need to get a free api key.
 
 Takes an optional key-value pair, the key is C<key> and the value your api key, see L<authenticate|/"AUTHENTICATE">.
 
-Returns a L<OpenGbg::Handler> object. This object is not interesting in itself, see each service under L<services|/"SERVICES"> for usage.
+Returns a L<OpenGbg::Handler> object on which you then call the L<services|/"SERVICES">.
 
 =head1 AUTHENTICATE
 
@@ -65,14 +65,20 @@ Once you have your api key you can use it in two different ways:
 
 The following services are currently implemented in this distribution:
 
+L<AirQuality|OpenGbg::Service::AirQuality> - Data on air quality
+
 L<StyrOchStall|OpenGbg::Service::StyrOchStall> - Data on rent-a-bike stations
 
 =head1 NAMING
 
-All names related to the services are de-camelized. For example, the service 'GetBikeStations' is called like this:
+Most names related to the services are de-camelized, while others are lower-cased (no underscores). For example, the service 'GetBikeStations' is called like this:
 
     my $gbg = OpenGbg->new;
     my $stations = $gbg->get_bike_stations;
+
+All calls to services are prefixed with 'get' even if the service isn't named that way. On the other hand, the 'service' suffix on some services are removed.
+
+Date/time intervals are always called 'start' and 'end' (in the web services they are sometimes called 'start' and 'stop').
 
 =head1 BUGS & ISSUES
 
