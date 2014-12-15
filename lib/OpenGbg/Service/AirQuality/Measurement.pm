@@ -69,7 +69,7 @@ method temperature_unit {
     return $self->_temperature_unit eq '°C' ? 'degrees C' : $self->_temperature_unit;
 }
 method wind_direction_unit {
-    return $self->_wind_direction_unit eq '°' ? 'degrees' : $self->_wind_direction_unit;   
+    return $self->_wind_direction_unit eq '°' ? 'degrees' : $self->_wind_direction_unit;
 }
 
 method microutf_to_ascii($unit) {
@@ -274,7 +274,7 @@ The humidity (in percent) during the measurement.
 
 =head2 solar_insolation
 
-The solar insolation (in W/square metre) during the measurement. 
+The solar insolation (in W/square metre) during the measurement.
 
 =head2 air_pressure
 
