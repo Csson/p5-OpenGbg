@@ -15,6 +15,13 @@ Revision history for OpenGbg
 
  [Revision]
 
+0.1100 2014-12-15T19:31:03Z CET
+ [Documentation]
+ - Fixed some faulty synopsises.
+
+ [New Features]
+ - Implemented the Air Quality service.
+
 0.1000 2014-12-15T00:19:51Z CET
  - Initial release
 
