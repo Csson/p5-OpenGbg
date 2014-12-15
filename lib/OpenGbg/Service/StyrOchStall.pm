@@ -51,7 +51,7 @@ OpenGbg::Service::StyrOchStall - Data on rent-a-bike stations
     my $styr_och_stall = OpenGbg->new->styr_och_stall;
     my $service = $styr_och_stall->get_bike_stations;
 
-    print $service->stations->get(0)->to_text;
+    print $service->stations->get_by_index(0)->to_text;
 
 =head1 DESCRIPTION
 

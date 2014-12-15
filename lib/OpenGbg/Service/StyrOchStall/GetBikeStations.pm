@@ -49,7 +49,7 @@ OpenGbg::Service::StyrOchStall::GetBikeStations
     my $service = $styr_och_stall->get_bike_stations;
 
     printf 'Time: %s', $service->timestamp;
-    print $service->stations->get(5)->to_text;
+    print $service->stations->get_by_index(5)->to_text;
 
 =head1 METHODS
 

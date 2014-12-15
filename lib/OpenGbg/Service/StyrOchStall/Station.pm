@@ -77,7 +77,7 @@ OpenGbg::Service::StyrOchStall::Station - A Styr och Ställ station
 =head1 SYNOPSIS
 
     my $styr_och_stall = OpenGbg->new->styr_och_stall;
-    my $station = $styr_och_stall->get_bike_stations->get(2);
+    my $station = $styr_och_stall->get_bike_stations->get_by_index(2);
 
     printf $station->free_bikes;
 
