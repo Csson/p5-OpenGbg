@@ -31,7 +31,7 @@ To use the API you need to get a free api key.
 
 Takes an optional key-value pair, the key is `key` and the value your api key, see [authenticate](#authenticate).
 
-Returns a [OpenGbg::Handler](https://metacpan.org/pod/OpenGbg::Handler) object. This object is not interesting in itself, see each service under [services](#services) for usage.
+Returns a [OpenGbg::Handler](https://metacpan.org/pod/OpenGbg::Handler) object on which you then call the [services](#services).
 
 # AUTHENTICATE
 
@@ -50,14 +50,20 @@ Once you have your api key you can use it in two different ways:
 
 The following services are currently implemented in this distribution:
 
+[AirQuality](https://metacpan.org/pod/OpenGbg::Service::AirQuality) - Data on air quality
+
 [StyrOchStall](https://metacpan.org/pod/OpenGbg::Service::StyrOchStall) - Data on rent-a-bike stations
 
 # NAMING
 
-All names related to the services are de-camelized. For example, the service 'GetBikeStations' is called like this:
+Most names related to the services are de-camelized, while others are lower-cased (no underscores). For example, the service 'GetBikeStations' is called like this:
 
     my $gbg = OpenGbg->new;
     my $stations = $gbg->get_bike_stations;
+
+All calls to services are prefixed with 'get' even if the service isn't named that way. On the other hand, the 'service' suffix on some services are removed.
+
+Date/time intervals are always called 'start' and 'end' (in the web services they are sometimes called 'start' and 'stop').
 
 # BUGS & ISSUES
 

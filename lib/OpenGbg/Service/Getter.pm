@@ -4,10 +4,11 @@ package OpenGbg::Service::Getter {
 
     use Moose::Role;
     use Kavorka;
+    use aliased 'OpenGbg::Exception::BadResponseFromService';
 
     method getter($service_url, $service_name) {
         $service_url = sprintf $service_url, $self->handler->key;
-        my $url = $self->handler->base . $self->service_base . $service_url;
+        my $url = $self->handler->base . $self->service_base . $service_url.'format=xml';
 
         my $response = $self->handler->get($url);
 

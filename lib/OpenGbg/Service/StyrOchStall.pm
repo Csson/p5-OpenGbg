@@ -1,6 +1,6 @@
 use OpenGbg::Standard::Moops;
 
-class OpenGbg::Service::StyrOchStall  using Moose {
+class OpenGbg::Service::StyrOchStall using Moose {
 
     use aliased 'OpenGbg::Service::StyrOchStall::GetBikeStation';
     use aliased 'OpenGbg::Service::StyrOchStall::GetBikeStations';
@@ -18,7 +18,7 @@ class OpenGbg::Service::StyrOchStall  using Moose {
     );
 
     method get_bike_station($id) {
-        my $url = "GetBikeStation/$id/%s?format=xml";
+        my $url = "GetBikeStation/$id/%s?";
         my $response = $self->getter($url, 'get_bike_station');
 
         return GetBikeStation->new(xml => $response);
@@ -31,7 +31,7 @@ class OpenGbg::Service::StyrOchStall  using Moose {
             $geo = join '&' => map { "$_=$hash{ $_ }" } keys %hash;
         }
 
-        my $url = "GetBikeStations/%s?$geo&format=xml";
+        my $url = "GetBikeStations/%s?$geo&";
         my $response = $self->getter($url, 'get_bike_stations');
 
         return GetBikeStations->new(xml => $response);
