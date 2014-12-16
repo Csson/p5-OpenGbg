@@ -41,8 +41,8 @@ method to_text {
     return sprintf qq{
                 Id:             %s
                 Label:          %s
-                Lat:            %s
-                Long:           %s
+                Latitude:       %s
+                Longitude:      %s
                 Capacity:       %2d
                 Free bikes:     %2d
                 Free stands:    %2d
@@ -76,10 +76,10 @@ OpenGbg::Service::StyrOchStall::Station - A Styr och Ställ station
 
 =head1 SYNOPSIS
 
-    my $styr_och_stall = OpenGbg->new->styr_och_stall;
-    my $station = $styr_och_stall->get_bike_stations->get_by_index(2);
+    my $service = OpenGbg->new->styr_och_stall;
+    my $station = $service->get_bike_stations->get_by_index(2);
 
-    printf $station->free_bikes;
+    printf 'Free bikes:  %d', $station->free_bikes;
 
 =head1 ATTRIBUTES
 
@@ -91,9 +91,9 @@ Integer. The station id.
 
 String. The station/location name.
 
-=head2 latitude
+=head2 lat
 
-=head2 longitude
+=head2 long
 
 Decimal degrees. The location of the station.
 
