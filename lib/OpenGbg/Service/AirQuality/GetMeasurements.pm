@@ -32,16 +32,16 @@ OpenGbg::Service::AirQuality::GetMeasurements
 
 =head1 SYNOPSIS
 
-    my $aq = OpenGbg->new->air_quality;
-    my $service = $aq->get_measurements(start => '2014-10-15', end => '2014-10-25');
+    my $service = OpenGbg->new->air_quality;
+    my $response = $service->get_measurements(start => '2014-10-15', end => '2014-10-25');
 
-    print $service->measurements->get_by_index(5)->to_text;
+    print $response->measurements->get_by_index(5)->to_text;
 
 =head1 METHODS
 
 =head2 measurements
 
-Returns the list of measurements in the response in a L<OpenGbg::Service::StyrOchStall::Measurements> object.
+Returns the list of measurements in the response in a L<OpenGbg::Service::AirQuality::Measurements> object.
 
 
 =head1 AUTHOR

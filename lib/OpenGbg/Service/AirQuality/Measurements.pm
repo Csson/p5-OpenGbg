@@ -30,8 +30,8 @@ OpenGbg::Service::AirQuality::Measurements - A list of air quality measurements
 
 =head1 SYNOPSIS
 
-    my $aq = OpenGbg->new->air_quality;
-    my $response = $aq->get_measurements(start => '2014-10-15', end => '2014-10-25');
+    my $service = OpenGbg->new->air_quality;
+    my $response = $service->get_measurements(start => '2014-10-15', end => '2014-10-25');
 
     print $response->measurements->get_by_index(3)->to_text;
 
@@ -56,7 +56,7 @@ Just like C<filter>, except it returns the first measurement that matches.
 
 =head2 get_by_index($index)
 
-Returns the n:th L<OpenGbg::Service::AirQuality::Measurement> object in the response.
+Returns the n:th L<Measurement|OpenGbg::Service::AirQuality::Measurement> object in the response.
 
 =head2 map(sub { ... })
 

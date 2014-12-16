@@ -253,8 +253,9 @@ OpenGbg::Service::AirQuality::Measurement - An air quality measurement
 
 =head1 SYNOPSIS
 
-    my $aq = OpenGbg->new->air_quality;
-    my $measurement = $aq->get_latest_measurement;
+    my $service = OpenGbg->new->air_quality;
+    my $response = $service->get_latest_measurement;
+    my $measurement = $response->measurement;
 
     printf '%5.2f %s' => $measurement->temperature, $measurement->temperature_unit;
 
@@ -262,7 +263,7 @@ OpenGbg::Service::AirQuality::Measurement - An air quality measurement
 
 All of these attribues are decimal numbers.
 
-For all weather attributes there is also a unit attribute (C<${attribute_name}_unit)> that returns a textual representation the unit.
+For all weather attributes there is also a unit attribute (C<${attribute_name}_unit>) that returns a textual representation the unit.
 
 =head2 temperature
 
@@ -274,7 +275,7 @@ The humidity (in percent) during the measurement.
 
 =head2 solar_insolation
 
-The solar insolation (in W/square metre) during the measurement.
+The solar insolation (in Watts/square metre) during the measurement.
 
 =head2 air_pressure
 
@@ -297,13 +298,16 @@ The rainfall (in mm) during the measurement.
 
 All of these attribues are normally decimal numbers. Empty string or undef denotes missing information.
 
-The unit for all is microgram/cubic metre.
+The unit for these attributes is microgram/cubic metre.
 
-For all air quality attributes there is also a unit attribute (C<${attribute_name}_unit)> that returns a textual representation the unit.
+All air quality attributes also have these additional attributes:
 
-More interesting is the index attribute (C<${attribute_name}_index)>, that returns a decimal number indicating the level for that particular attribute.
+C<${attribute_name}_unit> returns a textual representation the unit the value is given in.
 
-The C<${attribute_name}_levels> returns a textual indicator of the index (values: C<low levels>, C<medium levels>, C<high levels>, C<very high levels>). Empty string if the index is the empty string.
+C<${attribute_name}_index> returns a decimal number indicating the polution level for that particular attribute.
+
+C<${attribute_name}_levels> is like the C<*_index> attribute, but in text. Values are C<low levels>, C<medium levels>, C<high levels>, C<very high levels>). Empty string/undef if the index is the empty string/undef.
+
 
 B<Note:> The web service sometimes returns I<negative> values for some of these measurements.
 

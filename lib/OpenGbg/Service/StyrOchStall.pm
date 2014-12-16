@@ -48,10 +48,10 @@ OpenGbg::Service::StyrOchStall - Data on rent-a-bike stations
 
 =head1 SYNOPSIS
 
-    my $styr_och_stall = OpenGbg->new->styr_och_stall;
-    my $service = $styr_och_stall->get_bike_stations;
+    my $service = OpenGbg->new->styr_och_stall;
+    my $response = $service->get_bike_stations;
 
-    print $service->stations->get_by_index(0)->to_text;
+    print $response->stations->get_by_index(0)->to_text;
 
 =head1 DESCRIPTION
 
@@ -65,7 +65,7 @@ See L<OpenGbg> for general information.
 
 =head2 get_bike_station($id)
 
-C<$id> is the station id for the station you want to get information about. You'll need to first have fetched the stations with L<get_bike_stations|/"get_bike_stations(%geography)"> to get the id's.
+C<$id> is the station id for the station you want to get information about. You'll need to first have fetched the stations with L<get_bike_stations|/"get_bike_stations(%geography)"> to get the ids.
 
 Returns a L<GetBikeStation|OpenGbg::Service::StyrOchStall::GetBikeStation> object.
 

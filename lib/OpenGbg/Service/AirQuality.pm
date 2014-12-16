@@ -45,10 +45,10 @@ OpenGbg::Service::AirQuality - Data on air quality
 
 =head1 SYNOPSIS
 
-    my $aq = OpenGbg->new->air_quality;
-    my $service = $aq->get_latest_measurement;
+    my $service = OpenGbg->new->air_quality;
+    my $response = $service->get_latest_measurement;
 
-    print $service->measurement->to_text;
+    print $response->measurement->to_text;
 
 =head1 DESCRIPTION
 
@@ -63,12 +63,13 @@ See L<OpenGbg> for general information.
 
 =head2 get_latest_measurement
 
-Returns a L<GetLatestMeasurement|OpenGbg::Service::AirQuality::GetLatestMeasurement>.
+Returns a L<GetLatestMeasurement|OpenGbg::Service::AirQuality::GetLatestMeasurement> object.
 
 
 =head2 get_measurements(%dates)
 
-C<%dates> is a hash that filters returned measurements. Its keys are C<start> and C<end>, both are expected to be in the iso-8601 representation: C<2014-12-24>.
+C<%dates> is a hash that filters returned measurements. Its keys are C<start> and C<end>, both are expected to be in the iso-8601 representation: C<yyyy-mm-dd>.
+
 If C<start> is C<2014-10-15> and C<end> is C<2014-10-25> the all measurements between C<2014-10-15 00:00:00> and C<2014-10-25 00:00:00> will be returned.
 
 Returns a L<GetMeasurements|OpenGbg::Service::AirQuality::GetMeasurements> object.

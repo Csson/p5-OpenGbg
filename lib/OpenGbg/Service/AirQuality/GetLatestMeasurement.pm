@@ -32,10 +32,10 @@ OpenGbg::Service::AirQuality::GetLatestMeasurement
 
 =head1 SYNOPSIS
 
-    my $aq = OpenGbg->new->air_quality;
-    my $service = $aq->get_latest_measurement;
+    my $service = OpenGbg->new->air_quality;
+    my $response = $service->get_latest_measurement;
 
-    print $service->measurement->to_text;
+    print $response->measurement->to_text;
 
 =head1 METHODS
 

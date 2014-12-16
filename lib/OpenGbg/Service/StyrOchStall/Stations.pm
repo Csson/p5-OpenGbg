@@ -34,8 +34,8 @@ OpenGbg::Service::StyrOchStall::Stations - A list of Styr och Ställ stations
 
 =head1 SYNOPSIS
 
-    my $sos = OpenGbg->new->styr_och_stall;
-    my $response = $sos->get_bike_stations;
+    my $service OpenGbg->new->styr_och_stall;
+    my $response = $service->get_bike_stations;
 
     printf 'Time: %s', $response->timestamp;
     print $response->stations->get_by_index(5)->to_text;

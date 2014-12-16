@@ -45,11 +45,11 @@ OpenGbg::Service::StyrOchStall::GetBikeStations
 
 =head1 SYNOPSIS
 
-    my $styr_och_stall = OpenGbg->new->styr_och_stall;
-    my $service = $styr_och_stall->get_bike_stations;
+    my $sevice = OpenGbg->new->styr_och_stall;
+    my $response = $sevice->get_bike_stations;
 
-    printf 'Time: %s', $service->timestamp;
-    print $service->stations->get_by_index(5)->to_text;
+    printf 'Time: %s', $response->timestamp;
+    print $response->stations->get_by_index(5)->to_text;
 
 =head1 METHODS
 
