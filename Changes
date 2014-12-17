@@ -15,6 +15,13 @@ Revision history for OpenGbg
 
  [Revision]
 
+0.1200 2014-12-17T02:02:04Z CET
+ [Documentation]
+ - Minor fixes.
+
+ [New Features]
+ - Implemented the Bridge service.
+
 0.1101 2014-12-16T01:19:53Z CET
  [Documentation]
  - Various typos, mistakes and improvements.
