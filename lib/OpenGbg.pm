@@ -71,6 +71,8 @@ L<Bridge|OpenGbg::Service::Bridge> - Data on the openness of Göta Älvbron
 
 L<StyrOchStall|OpenGbg::Service::StyrOchStall> - Data on rent-a-bike stations
 
+L<TrafficCamera|OpenGbg::Service::TrafficCamera> - Data on traffic cameras, and their images
+
 =head1 NAMING
 
 Most names related to the services are de-camelized, while others are lower-cased (no underscores). For example, the service 'GetBikeStations' is called like this:

@@ -16,6 +16,13 @@ class OpenGbg::Service::TrafficCamera using Moose {
         default => 'TrafficCamera/v0.1/',
     );
 
+    method get_camera_image($id) {
+        my $url = "CameraImage/%s/$id?";
+        my $response = $self->getter($url, 'get_camera_image');
+
+        return OpenGbg::Service::TrafficCamera::GetCameraImage->new(image => $response);
+    }
+
     method get_traffic_cameras {
         my $url = 'TrafficCameras/%s?';
         my $response = $self->getter($url, 'get_traffic_cameras');
@@ -30,44 +37,39 @@ __END__
 
 =head1 NAME
 
-OpenGbg::Service::StyrOchStall - Data on rent-a-bike stations
+OpenGbg::Service::TrafficCamera - Data on traffic cameras and their images
 
 =head1 SYNOPSIS
 
-    my $service = OpenGbg->new->styr_och_stall;
-    my $response = $service->get_bike_stations;
+    my $traffic_camera_service = OpenGbg->new->traffic_camera;
+    my $response = $traffic_camera_service->get_traffic_cameras;
 
-    print $response->stations->get_by_index(0)->to_text;
+    print $response->camera_devices->get_by_index(0)->to_text;
 
 =head1 DESCRIPTION
 
-Styr och ställ is Gothenburg's bike share program. This service has a couple of methods to get data about the bike stations.
+Traffic cameras all around Gothenburg captures a lot of images (usually once per minute). This service gives information about the
+cameras themselves, as well as a way to get the latest captured image from all cameras.
 
-L<Official documentation|http://data.goteborg.se/Pages/Webservice.aspx?ID=10>
+L<Official documentation|http://data.goteborg.se/Pages/Webservice.aspx?ID=15>
 
 See L<OpenGbg> for general information.
 
 =head1 METHODS
 
-=head2 get_bike_station($id)
+=head2 get_traffic_cameras
 
-C<$id> is the station id for the station you want to get information about. You'll need to first have fetched the stations with L<get_bike_stations|/"get_bike_stations(%geography)"> to get the ids.
+Get information on the traffic cameras.
 
-Returns a L<GetBikeStation|OpenGbg::Service::StyrOchStall::GetBikeStation> object.
+Returns a L<GetTrafficCameras|OpenGbg::Service::TrafficCamera::GetTrafficCameras> object.
 
 
-=head2 get_bike_stations(%geography)
+=head2 get_camera_image($camera_id)
 
-C<%geography> is an optional hash used to limit returned stations to a geographical area.
-Its keys are C<lat> and C<long>, and optionally C<radius> (in metres).
+Get the latest image from the camera with id C<$id>.
 
-If C<%geography> is absent no geographic filtering is done.
+Returns a L<GetCameraImage|OpenGbg::Service::TrafficCamera::GetCameraImage> object.
 
-Returns a L<GetBikeStations|OpenGbg::Service::StyrOchStall::GetBikeStations> object.
-
-=head1 EXCEPTIONS
-
-If the http call to the web service fails, a L<BadResponseFromService|OpenGbg::Exception::BadResponseFromService> exception is thrown. Use L<Try::Tiny> to catch.
 
 =head1 AUTHOR
 

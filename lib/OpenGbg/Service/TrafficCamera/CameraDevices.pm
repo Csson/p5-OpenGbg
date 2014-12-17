@@ -30,56 +30,50 @@ __END__
 
 =head1 NAME
 
-OpenGbg::Service::StyrOchStall::Stations - A list of Styr och Ställ stations
+OpenGbg::Service::TrafficCamera::CameraDevices - A list of Styr och Ställ stations
 
 =head1 SYNOPSIS
 
-    my $service = OpenGbg->new->styr_och_stall;
-    my $response = $service->get_bike_stations;
+    my $traffic_camera_service = OpenGbg->new->traffic_camera;
+    my $get_traffic_cameras = $traffic_camera_service->get_traffic_cameras;
 
-    printf 'Time: %s', $response->timestamp;
-    print $response->stations->get_by_index(5)->to_text;
+    my $camera_devices = $get_traffic_cameras->camera_devices;
+    print $camera_devices->get_by_index(0)->to_text;
 
 =head1 METHODS
 
 =head2 all
 
-Returns an array of the L<OpenGbg::Service::StyrOchStall::Station> objects in the response.
+Returns an array of all L<OpenGbg::Service::TrafficCamera::CameraDevice> objects in the response.
 
 =head2 count
 
-Returns the number of L<Station|OpenGbg::Service::StyrOchStall::Station> objects in the response.
+Returns the number of L<CameraDevice|OpenGbg::Service::TrafficCamera::CameraDevice> objects in the response.
 
 =head2 filter(sub { ... })
 
-Allows filtering of the stations. Takes a sub routine reference, into which all L<Station|OpenGbg::Service::StyrOchStall::Station> objects are
+Allows filtering of the traffic cameras. Takes a sub routine reference, into which all L<CameraDevice|OpenGbg::Service::TrafficCamera::CameraDevice> objects are
 passed one-by-one into C<$_>. Works like C<grep>.
 
 =head2 find(sub { ... })
 
-Just like C<filter>, except it returns the first station that matches.
+Just like C<filter>, except it returns the first traffic camera that matches.
 
 =head2 get_by_index($index)
 
-Returns the n:th L<OpenGbg::Service::StyrOchStall::Station> object in the response.
+Returns the n:th L<OpenGbg::Service::TrafficCamera::CameraDevice> object in the response.
 
 =head2 get_by_id($id)
 
-Returns the station with id C<$id>.
+Returns the traffic camera with id C<$id>.
 
 =head2 map(sub { ... })
 
-Like C<filter> it takes a sub routine reference and passes each L<Station|OpenGbg::Service::StyrOchStall::Station> as C<$_>. Eg, to get a total count of free bikes:
-
-    use List::AllUtils 'sum';
-    my $free_bikes_count = sum $response->stations->map( sub { $_->free_bikes });
-
+Like C<filter> it takes a sub routine reference and passes each L<CameraDevice|OpenGbg::Service::TrafficCamera::CameraDevice> as C<$_>. Eg, to get a total count of free bikes:
 
 =head2 sort(sub { ... })
 
-Like C<filter> it takes a sub routine reference. It works just like C<sort> except the two L<Station|OpenGbg::Service::StyrOchStall::Station> objects to compare are passed as C<$_[0]> and C<$_[1]>
-
-    my @most_bikes_first = $response->stations->sort( sub { $_[1]->free_bikes <=> $_[0]->free_bikes });
+Like C<filter> it takes a sub routine reference. It works just like C<sort> except the two L<CameraDevice|OpenGbg::Service::TrafficCamera::CameraDevice> objects to compare are passed as C<$_[0]> and C<$_[1]>
 
 =head1 AUTHOR
 

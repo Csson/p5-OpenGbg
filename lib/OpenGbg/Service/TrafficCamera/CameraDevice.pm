@@ -5,8 +5,9 @@ package OpenGbg::Service::TrafficCamera::CameraDevice;
 use XML::Rabbit;
 use syntax 'qs';
 use Kavorka;
+use utf8;
 
-has_xpath_value id => './x:Id';
+has_xpath_value id => './x:ID';
 
 has_xpath_value storage_duration_minutes => './x:StorageDurationMinutes';
 
@@ -42,60 +43,46 @@ __END__
 
 =head1 NAME
 
-OpenGbg::Service::StyrOchStall::Station - A Styr och Ställ station
+OpenGbg::Service::TrafficCamera::CameraDevice - A traffi camera
 
 =head1 SYNOPSIS
 
-    my $service = OpenGbg->new->styr_och_stall;
-    my $station = $service->get_bike_stations->get_by_index(2);
+    my $traffic_camera_service = OpenGbg->new->traffic_camera;
+    my $get_traffic_cameras = $traffic_camera_service->get_traffic_cameras;
 
-    printf 'Free bikes:  %d', $station->free_bikes;
+    my $camera_devices = $get_traffic_cameras->camera_devices;
+    my $camera_device = $camera_devices->get_by_index(0)
+    print $camera_device->to_text;
+
 
 =head1 ATTRIBUTES
 
 =head2 id
 
-Integer. The station id.
+Integer. The traffic camera id.
 
-=head2 label
+=head2 description
 
-String. The station/location name.
+String. The description/location of the traffic camera.
 
-=head2 lat
+=head2 storage_duration_minutes
 
-=head2 long
+Integer. How long is the image saved. There is however currently no service to get any image but the latest.
 
-Decimal degrees. The location of the station.
+=head2 capture_interval_seconds
 
-=head2 capacity
+Integer. How long between captures.
 
-Integer. Maximum number of bikes.
+=head2 model
 
-=head2 free_bikes
+String. The brand and/or model of the traffic camera.
 
-Integer. Number of available bikes.
-
-=head2 free_stands
-
-Integer. Number of open stands.
-
-=head2 state
-
-String. Can be C<open>, C<closed>, C<maintenance> or C<construction>.
-
-=head2 empty
-
-Boolean. Returns true if there is no bike available.
-
-=head2 full
-
-Boolean. Returns true if there is no room to return a bike to.
 
 =head1 METHODS
 
 =head2 to_text()
 
-Returns a string with the station data in a table.
+Returns a string with the traffic camera data in a table.
 
 =head1 AUTHOR
 

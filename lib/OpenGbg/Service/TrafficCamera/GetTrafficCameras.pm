@@ -27,26 +27,20 @@ __END__
 
 =head1 NAME
 
-OpenGbg::Service::StyrOchStall::GetBikeStations
+OpenGbg::Service::TrafficCamera::GetTrafficCameras
 
 =head1 SYNOPSIS
 
-    my $service = OpenGbg->new->styr_och_stall;
-    my $response = $service->get_bike_stations;
+    my $traffic_camera_service = OpenGbg->new->traffic_camera;
+    my $get_traffic_cameras = $traffic_camera_service->get_traffic_cameras;
 
-    printf 'Time: %s', $response->timestamp;
-    print $response->stations->get_by_index(5)->to_text;
+    print $get_traffic_cameras->camera_devices->get_by_index(0)->to_text;
 
 =head1 METHODS
 
-=head2 timestamp
+=head2 camera_devices
 
-Returns the timestamp given in the response as a L<DateTime> object.
-
-=head2 stations
-
-Returns the list of stations in the response in a L<OpenGbg::Service::StyrOchStall::Stations> object.
-
+Returns the list of traffic cameras in the response in a L<OpenGbg::Service::TrafficCamera::CameraDevices> object.
 
 =head1 AUTHOR
 
