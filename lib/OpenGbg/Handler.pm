@@ -10,6 +10,7 @@ using Moose {
     use OpenGbg::Service::AirQuality;
     use OpenGbg::Service::Bridge;
     use OpenGbg::Service::StyrOchStall;
+    use OpenGbg::Service::TrafficCamera;
 
     has config_file => (
         is => 'ro',
@@ -36,26 +37,26 @@ using Moose {
         builder => 1,
         handles => ['get'],
     );
-    has air_quality => (
-        is => 'ro',
-        lazy => 1,
-        builder => 1,
-    );
-    has bridge => (
-        is => 'ro',
-        lazy => 1,
-        builder => 1,
-    );
-    has styr_och_stall => (
-        is => 'ro',
-        lazy => 1,
-        builder => 1,
-    );
     has base => (
         is => 'ro',
         isa => Str,
         default => 'http://data.goteborg.se/',
     );
+
+    my @services = qw/
+        air_quality
+        bridge
+        styr_och_stall
+        traffic_camera
+    /;
+    foreach my $service (@services) {
+        has $service => (
+            is => 'ro',
+            lazy => 1,
+            builder => 1,
+        );
+    }
+
     method _build_config_file {
         my $home = File::HomeDir->my_home;
         my $conf_file = path($home)->child('.opengbg.ini');
@@ -84,6 +85,9 @@ using Moose {
     }
     method _build_styr_och_stall {
         return OpenGbg::Service::StyrOchStall->new(handler => $self);
+    }
+    method _build_traffic_camera {
+        return OpenGbg::Service::TrafficCamera->new(handler => $self);
     }
 }
 
