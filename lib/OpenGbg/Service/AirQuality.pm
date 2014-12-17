@@ -70,7 +70,7 @@ Returns a L<GetLatestMeasurement|OpenGbg::Service::AirQuality::GetLatestMeasurem
 
 C<%dates> is a hash that filters returned measurements. Its keys are C<start> and C<end>, both are expected to be in the iso-8601 representation: C<yyyy-mm-dd>.
 
-Given C<start =E<gt> '2014-10-15', end =E<gt> '2014-10-25' then all measurements between 2014-10-15 00:00:00 and 2014-10-25 00:00:00 will be returned.
+Given C<start =E<gt> '2014-10-15', end =E<gt> '2014-10-25'> then all measurements between 2014-10-15 00:00:00 and 2014-10-25 00:00:00 will be returned.
 
 Returns a L<GetMeasurements|OpenGbg::Service::AirQuality::GetMeasurements> object.
 
