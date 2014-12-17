@@ -56,6 +56,8 @@ The following services are currently implemented in this distribution:
 
 [StyrOchStall](https://metacpan.org/pod/OpenGbg::Service::StyrOchStall) - Data on rent-a-bike stations
 
+[TrafficCamera](https://metacpan.org/pod/OpenGbg::Service::TrafficCamera) - Data on traffic cameras, and their images
+
 # NAMING
 
 Most names related to the services are de-camelized, while others are lower-cased (no underscores). For example, the service 'GetBikeStations' is called like this:
