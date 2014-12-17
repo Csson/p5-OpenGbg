@@ -52,6 +52,8 @@ The following services are currently implemented in this distribution:
 
 [AirQuality](https://metacpan.org/pod/OpenGbg::Service::AirQuality) - Data on air quality
 
+[Bridge](https://metacpan.org/pod/OpenGbg::Service::Bridge) - Data on the openness of Göta Älvbron
+
 [StyrOchStall](https://metacpan.org/pod/OpenGbg::Service::StyrOchStall) - Data on rent-a-bike stations
 
 # NAMING

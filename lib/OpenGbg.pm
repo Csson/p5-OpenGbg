@@ -67,6 +67,8 @@ The following services are currently implemented in this distribution:
 
 L<AirQuality|OpenGbg::Service::AirQuality> - Data on air quality
 
+L<Bridge|OpenGbg::Service::Bridge> - Data on the openness of Göta Älvbron
+
 L<StyrOchStall|OpenGbg::Service::StyrOchStall> - Data on rent-a-bike stations
 
 =head1 NAMING
