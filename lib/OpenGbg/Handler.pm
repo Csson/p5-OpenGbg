@@ -114,6 +114,11 @@ OpenGbg::Handler is the class from where calls to all web services are made.
 Returns a L<OpenGbg::Service::AirQuality> object.
 
 
+=head2 bridge()
+
+Returns a L<OpenGbg::Service::Bridge> object.
+
+
 =head2 styr_och_stall()
 
 Returns a L<OpenGbg::Service::StyrOchStall> object.

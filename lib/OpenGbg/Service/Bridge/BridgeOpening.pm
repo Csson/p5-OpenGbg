@@ -43,60 +43,30 @@ __END__
 
 =head1 NAME
 
-OpenGbg::Service::StyrOchStall::Station - A Styr och Ställ station
+OpenGbg::Service::Bridge::BridgeOpening - A change in status for Göta Älvbron
 
 =head1 SYNOPSIS
 
-    my $service = OpenGbg->new->styr_och_stall;
-    my $station = $service->get_bike_stations->get_by_index(2);
+    my $bridge = OpenGbg->new->bridge;
+    my $status = $bridge->get_opened_status->get_by_index(2);
 
-    printf 'Free bikes:  %d', $station->free_bikes;
+    printf 'it was %s', $status->was_open ? 'open' : 'closed';
+
+=head1 DESCRIPTIOn
+
+Each C<BridgeOpening> object only knows if the bridge was opened or closed at that time. Usually, an 'open' BridgeOpening is followed a few minutes later by a 'closed' one.
 
 =head1 ATTRIBUTES
 
-=head2 id
+=head2 timestamp
 
-Integer. The station id.
+A L<DateTime> object.
 
-=head2 label
+The time the bridge was either open or closed.
 
-String. The station/location name.
+=head2 was_open
 
-=head2 lat
-
-=head2 long
-
-Decimal degrees. The location of the station.
-
-=head2 capacity
-
-Integer. Maximum number of bikes.
-
-=head2 free_bikes
-
-Integer. Number of available bikes.
-
-=head2 free_stands
-
-Integer. Number of open stands.
-
-=head2 state
-
-String. Can be C<open>, C<closed>, C<maintenance> or C<construction>.
-
-=head2 empty
-
-Boolean. Returns true if there is no bike available.
-
-=head2 full
-
-Boolean. Returns true if there is no room to return a bike to.
-
-=head1 METHODS
-
-=head2 to_text()
-
-Returns a string with the station data in a table.
+Boolean. True if the bridge was open at C<timestamp>, false if not.
 
 =head1 AUTHOR
 

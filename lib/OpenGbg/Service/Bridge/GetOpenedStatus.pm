@@ -16,7 +16,7 @@ has xml => (
 
 add_xpath_namespace 'x' => 'TK.DevServer.Services.BridgeService';
 
-has_xpath_value is_open => '/x:BridgeOpen/x:Value';
+has_xpath_object bridge_openings => '/x:BridgeOpenings' => 'OpenGbg::Service::Bridge::BridgeOpenings';
 
 finalize_class();
 
@@ -28,25 +28,25 @@ __END__
 
 =head1 NAME
 
-OpenGbg::Service::StyrOchStall::GetBikeStations
+OpenGbg::Service::Bridge::GetOpenedStatus
 
 =head1 SYNOPSIS
 
-    my $sevice = OpenGbg->new->styr_och_stall;
-    my $response = $sevice->get_bike_stations;
+    my $bridge = OpenGbg->new->bridge;
+    my $get_opened_status = $bridge->get_opened_status('2014-10-15', '2014-11-01');
 
-    printf 'Time: %s', $response->timestamp;
-    print $response->stations->get_by_index(5)->to_text;
+    my $opening = $get_opened_status->bridge_openings->get_by_index(5);
+
+    printf 'It was %s at %s on %s', $opening->was_open ? 'open' : 'closed', $opening->timestamp->hms, $opening->timestamp->ymd;
 
 =head1 METHODS
 
-=head2 timestamp
+=head2 bridge_openings
 
-Returns the timestamp given in the response as a L<DateTime> object.
+The service returns a list of status changes. The list is prepended with the status at midnight of the start date (given to get_opened_status
+in L<Bridge|OpenGbg::Service::Bridge>), and appended with the status at midnight to the end date.
 
-=head2 stations
-
-Returns the list of stations in the response in a L<OpenGbg::Service::StyrOchStall::Stations> object.
+Returns the list of status changes in the response in a L<OpenGbg::Service::Bridge::BridgeOpenings> object.
 
 
 =head1 AUTHOR

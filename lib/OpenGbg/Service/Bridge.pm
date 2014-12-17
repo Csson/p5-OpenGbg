@@ -24,8 +24,8 @@ class OpenGbg::Service::Bridge using Moose {
         return OpenGbg::Service::Bridge::GetIsCurrentlyOpen->new(xml => $response);
     }
     method get_opened_status($start, $end) {
-        my $url = "GetGABOpenedStatus/%s/$start/$end/?";
-        my $response = $self->getter($url, 'measurements');
+        my $url = "GetGABOpenedStatus/%s/$start/$end?";
+        my $response = $self->getter($url, 'get_opened_status');
 
         return OpenGbg::Service::Bridge::GetOpenedStatus->new(xml => $response);
     }
@@ -38,38 +38,40 @@ __END__
 
 =head1 NAME
 
-OpenGbg::Service::AirQuality - Data on air quality
+OpenGbg::Service::Bridge - Data on the openness of Göta älvbron
 
 =head1 SYNOPSIS
 
-    my $service = OpenGbg->new->air_quality;
-    my $response = $service->get_latest_measurement;
+    my $bridge = OpenGbg->new->bridge;
+    my $response = $bridge->get_is_currently_open;
 
-    print $response->measurement->to_text;
+    print $response->is_open ? 'It is open' : 'It is closed';
 
 =head1 DESCRIPTION
 
-Gothenburg publishes hourly readings on weather and air quality. The service publishes two methods to get this data.
+The Göta älvbron is a major bascule bridge in Gothenburg that opens more or less daily. This service publishes two methods with regards to its status.
 
-L<Official documentation|http://data.goteborg.se/Pages/Webservice.aspx?ID=13>
+L<Official documentation|http://data.goteborg.se/Pages/Webservice.aspx?ID=24>
 
 See L<OpenGbg> for general information.
 
 
 =head1 METHODS
 
-=head2 get_latest_measurement
+=head2 get_is_currently_open
 
-Returns a L<GetLatestMeasurement|OpenGbg::Service::AirQuality::GetLatestMeasurement> object.
+This method is for checking if the bridge is currently open.
+
+Returns a L<GetIsCurrentlyOpen|OpenGbg::Service::Bridge::GetIsCurrentlyOpen> object.
 
 
-=head2 get_measurements(%dates)
+=head2 get_opened_status($startdate, $enddate)
 
-C<%dates> is a hash that filters returned measurements. Its keys are C<start> and C<end>, both are expected to be in the iso-8601 representation: C<yyyy-mm-dd>.
+This method is for checking when it was opened in the past.
 
-Given C<start =E<gt> '2014-10-15', end =E<gt> '2014-10-25' then all measurements between 2014-10-15 00:00:00 and 2014-10-25 00:00:00 will be returned.
+C<$startdate> and C<$enddate> are mandatory filtering arguments, both are expected to be in the iso-8601 representation: C<yyyy-mm-dd>. The ending date is not inclusive.
 
-Returns a L<GetMeasurements|OpenGbg::Service::AirQuality::GetMeasurements> object.
+Returns a L<GetOpenedStatus|OpenGbg::Service::Bridge::GetOpenedStatus> object.
 
 
 =head1 AUTHOR

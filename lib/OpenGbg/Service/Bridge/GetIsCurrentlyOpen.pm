@@ -1,6 +1,6 @@
 use 5.14.0;
 
-package OpenGbg::Service::Bridge::GetIsCurrentlyOpened;
+package OpenGbg::Service::Bridge::GetIsCurrentlyOpen;
 
 use OpenGbg::Types -types;
 use XML::Rabbit::Root;
@@ -16,7 +16,19 @@ has xml => (
 
 add_xpath_namespace 'x' => 'TK.DevServer.Services.BridgeService';
 
-has_xpath_value is_open => '/x:BridgeOpen/x:Value';
+has_xpath_value _is_open => '/x:BridgeOpen/x:Value';
+
+has is_open => (
+    is => 'ro',
+    isa => Bool,
+    lazy => 1,
+    builder => 1,
+);
+
+method _build_is_open {
+    return $self->_is_open eq 'true';
+}
+
 
 finalize_class();
 
@@ -28,26 +40,20 @@ __END__
 
 =head1 NAME
 
-OpenGbg::Service::StyrOchStall::GetBikeStations
+OpenGbg::Service::Bridge::GetIsCurrentlyOpen
 
 =head1 SYNOPSIS
 
-    my $sevice = OpenGbg->new->styr_och_stall;
-    my $response = $sevice->get_bike_stations;
+    my $bridge = OpenGbg->new->bridge;
+    my $get_ico = $bridge->get_is_currently_open;
 
-    printf 'Time: %s', $response->timestamp;
-    print $response->stations->get_by_index(5)->to_text;
+    print $get_ico->is_open ? 'It is open' : 'It is closed';
 
 =head1 METHODS
 
-=head2 timestamp
+=head2 is_open
 
-Returns the timestamp given in the response as a L<DateTime> object.
-
-=head2 stations
-
-Returns the list of stations in the response in a L<OpenGbg::Service::StyrOchStall::Stations> object.
-
+Returns a true value if the bridge is open, false if not.
 
 =head1 AUTHOR
 
