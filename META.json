@@ -66,6 +66,17 @@
       }
    },
    "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/Csson/p5-OpenGbg/issues"
+      },
+      "homepage" : "https://github.com/Csson/p5-OpenGbg",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/Csson/p5-OpenGbg.git",
+         "web" : "https://github.com/Csson/p5-OpenGbg"
+      }
+   },
    "version" : "0.1202"
 }
 
