@@ -25,7 +25,7 @@ class OpenGbg::Service::TrafficCamera::GetCameraImage using Moose {
     }
 
     method _build_timestamp {
-        return DateTime->now->truncate(to => 'minute');
+        my $datetime = DateTime::->now->truncate(to => 'minute')->set_time_zone('Europe/Stockholm');
     }
 
 }
