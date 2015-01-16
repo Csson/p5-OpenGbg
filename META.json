@@ -59,7 +59,9 @@
             "Types::Path::Tiny" : "0",
             "XML::LibXML" : "0",
             "XML::Rabbit" : "0",
-            "perl" : "5.014000"
+            "namespace::autoclean" : "0",
+            "perl" : "5.014000",
+            "syntax" : "0"
          }
       }
    },
@@ -162,6 +164,10 @@
       },
       "OpenGbg::Service::TrafficCamera::GetTrafficCameras" : {
          "file" : "lib/OpenGbg/Service/TrafficCamera/GetTrafficCameras.pm",
+         "version" : "0.1301"
+      },
+      "OpenGbg::Standard::Imports" : {
+         "file" : "lib/OpenGbg/Standard/Imports.pm",
          "version" : "0.1301"
       },
       "OpenGbg::Types" : {

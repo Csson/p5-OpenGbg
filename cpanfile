@@ -19,6 +19,10 @@ requires 'Types::DateTime';
 requires 'Types::Path::Tiny';
 requires 'Throwable::X';
 
+requires 'namespace::autoclean';
+requires 'syntax';
+requires 'Syntax::Feature::Qs';
+
 on 'build' => sub {
     requires 'XML::LibXML';
 }
