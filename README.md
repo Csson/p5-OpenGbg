@@ -2,9 +2,9 @@
 
 OpenGbg - An interface to the Open Data API of Gothenburg
 
-<div>
-    <p><a style="float: left;" href="https://travis-ci.org/Csson/p5-OpenGbg"><img src="https://travis-ci.org/Csson/p5-OpenGbg.svg?branch=master">&nbsp;</a>
-</div>
+# VERSION
+
+Version 0.1301, released 2015-01-16.
 
 # SYNOPSIS
 
@@ -69,23 +69,25 @@ All calls to services are prefixed with 'get' even if the service isn't named th
 
 Date/time intervals are always called 'start' and 'end' (in the web services they are sometimes called 'start' and 'stop').
 
-# BUGS & ISSUES
-
-The repository and issue tracker is at: [https://github.com/Csson/p5-OpenGbg](https://github.com/Csson/p5-OpenGbg)
-
 # DISCLAIMER
 
 This is not an official distribution.
+
+# SOURCE
+
+[https://github.com/Csson/p5-OpenGbg](https://github.com/Csson/p5-OpenGbg)
+
+# HOMEPAGE
+
+[https://metacpan.org/release/OpenGbg](https://metacpan.org/release/OpenGbg)
 
 # AUTHOR
 
 Erik Carlsson <info@code301.com>
 
-# COPYRIGHT
+# COPYRIGHT AND LICENSE
 
-Copyright 2014 - Erik Carlsson
+This software is copyright (c) 2015 by Erik Carlsson.
 
-# LICENSE
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
