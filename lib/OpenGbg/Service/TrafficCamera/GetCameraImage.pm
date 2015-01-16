@@ -36,11 +36,9 @@ class OpenGbg::Service::TrafficCamera::GetCameraImage using Moose {
 
 __END__
 
+=pod
+
 =encoding utf-8
-
-=head1 NAME
-
-OpenGbg::Service::TrafficCamera::GetCameraImage - A traffic camera image
 
 =head1 SYNOPSIS
 
@@ -62,18 +60,5 @@ Integer. The image size in bytes. Sometimes cameras are out-of-order, and return
 =head2 timestamp
 
 A L<DateTime> object, rounded down to the closest minute. The timestamp of the image is not given in the response from the web service. This DateTime object is created as a convenience.
-
-=head1 AUTHOR
-
-Erik Carlsson E<lt>info@code301.comE<gt>
-
-=head1 COPYRIGHT
-
-Copyright 2014 - Erik Carlsson
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

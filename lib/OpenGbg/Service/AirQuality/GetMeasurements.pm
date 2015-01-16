@@ -29,6 +29,8 @@ finalize_class();
 
 __END__
 
+=pod
+
 =encoding utf-8
 
 =head1 NAME
@@ -47,19 +49,5 @@ OpenGbg::Service::AirQuality::GetMeasurements
 =head2 measurements
 
 Returns the list of measurements in the response in a L<OpenGbg::Service::AirQuality::Measurements> object.
-
-
-=head1 AUTHOR
-
-Erik Carlsson E<lt>info@code301.comE<gt>
-
-=head1 COPYRIGHT
-
-Copyright 2014 - Erik Carlsson
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

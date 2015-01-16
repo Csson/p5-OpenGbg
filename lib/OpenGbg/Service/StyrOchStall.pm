@@ -45,10 +45,6 @@ __END__
 
 =encoding utf-8
 
-=head1 NAME
-
-OpenGbg::Service::StyrOchStall - Data on rent-a-bike stations
-
 =head1 SYNOPSIS
 
     my $service = OpenGbg->new->styr_och_stall;
@@ -85,18 +81,5 @@ Returns a L<GetBikeStations|OpenGbg::Service::StyrOchStall::GetBikeStations> obj
 =head1 EXCEPTIONS
 
 If the http call to the web service fails, a L<BadResponseFromService|OpenGbg::Exception::BadResponseFromService> exception is thrown. Use L<Try::Tiny> to catch.
-
-=head1 AUTHOR
-
-Erik Carlsson E<lt>info@code301.comE<gt>
-
-=head1 COPYRIGHT
-
-Copyright 2014 - Erik Carlsson
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

@@ -31,11 +31,9 @@ finalize_class();
 
 __END__
 
+=pod
+
 =encoding utf-8
-
-=head1 NAME
-
-OpenGbg::Service::TrafficCamera::CameraDevices - A list of Styr och Ställ stations
 
 =head1 SYNOPSIS
 
@@ -79,18 +77,5 @@ Like C<filter> it takes a sub routine reference and passes each L<CameraDevice|O
 =head2 sort(sub { ... })
 
 Like C<filter> it takes a sub routine reference. It works just like C<sort> except the two L<CameraDevice|OpenGbg::Service::TrafficCamera::CameraDevice> objects to compare are passed as C<$_[0]> and C<$_[1]>
-
-=head1 AUTHOR
-
-Erik Carlsson E<lt>info@code301.comE<gt>
-
-=head1 COPYRIGHT
-
-Copyright 2014 - Erik Carlsson
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

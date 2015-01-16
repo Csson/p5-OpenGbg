@@ -40,10 +40,6 @@ __END__
 
 =encoding utf-8
 
-=head1 NAME
-
-OpenGbg::Service::Bridge - Data on the openness of Göta älvbron
-
 =head1 SYNOPSIS
 
     my $bridge = OpenGbg->new->bridge;
@@ -76,19 +72,5 @@ This method is for checking when it was opened in the past.
 C<$startdate> and C<$enddate> are mandatory filtering arguments, both are expected to be in the iso-8601 representation: C<yyyy-mm-dd>. The ending date is not inclusive.
 
 Returns a L<GetOpenedStatus|OpenGbg::Service::Bridge::GetOpenedStatus> object.
-
-
-=head1 AUTHOR
-
-Erik Carlsson E<lt>info@code301.comE<gt>
-
-=head1 COPYRIGHT
-
-Copyright 2014 - Erik Carlsson
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

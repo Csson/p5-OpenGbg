@@ -30,10 +30,6 @@ __END__
 
 =encoding utf-8
 
-=head1 NAME
-
-OpenGbg::Service::TrafficCamera::GetTrafficCameras
-
 =head1 SYNOPSIS
 
     my $traffic_camera_service = OpenGbg->new->traffic_camera;
@@ -46,18 +42,5 @@ OpenGbg::Service::TrafficCamera::GetTrafficCameras
 =head2 camera_devices
 
 Returns the list of traffic cameras in the response in a L<OpenGbg::Service::TrafficCamera::CameraDevices> object.
-
-=head1 AUTHOR
-
-Erik Carlsson E<lt>info@code301.comE<gt>
-
-=head1 COPYRIGHT
-
-Copyright 2014 - Erik Carlsson
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

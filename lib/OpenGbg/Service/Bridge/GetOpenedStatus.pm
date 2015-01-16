@@ -29,11 +29,9 @@ finalize_class();
 
 __END__
 
+=pod
+
 =encoding utf-8
-
-=head1 NAME
-
-OpenGbg::Service::Bridge::GetOpenedStatus
 
 =head1 SYNOPSIS
 
@@ -52,19 +50,5 @@ The service returns a list of status changes. The list is prepended with the sta
 in L<Bridge|OpenGbg::Service::Bridge>), and appended with the status at midnight to the end date.
 
 Returns the list of status changes in the response in a L<OpenGbg::Service::Bridge::BridgeOpenings> object.
-
-
-=head1 AUTHOR
-
-Erik Carlsson E<lt>info@code301.comE<gt>
-
-=head1 COPYRIGHT
-
-Copyright 2014 - Erik Carlsson
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

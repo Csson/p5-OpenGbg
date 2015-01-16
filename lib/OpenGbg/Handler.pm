@@ -98,10 +98,6 @@ __END__
 
 =encoding utf-8
 
-=head1 NAME
-
-OpenGbg::Handler - The entry point to all OpenGbg services.
-
 =head1 SYNOPSIS
 
     # $handler is a OpenGbg::Handler object
@@ -129,18 +125,5 @@ Returns a L<OpenGbg::Service::Bridge> object.
 =head2 styr_och_stall()
 
 Returns a L<OpenGbg::Service::StyrOchStall> object.
-
-=head1 AUTHOR
-
-Erik Carlsson E<lt>info@code301.comE<gt>
-
-=head1 COPYRIGHT
-
-Copyright 2014 - Erik Carlsson
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

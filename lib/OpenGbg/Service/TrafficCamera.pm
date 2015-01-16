@@ -39,10 +39,6 @@ __END__
 
 =encoding utf-8
 
-=head1 NAME
-
-OpenGbg::Service::TrafficCamera - Data on traffic cameras and their images
-
 =head1 SYNOPSIS
 
     my $traffic_camera_service = OpenGbg->new->traffic_camera;
@@ -73,19 +69,5 @@ Returns a L<GetTrafficCameras|OpenGbg::Service::TrafficCamera::GetTrafficCameras
 Get the latest image from the camera with id C<$id>.
 
 Returns a L<GetCameraImage|OpenGbg::Service::TrafficCamera::GetCameraImage> object.
-
-
-=head1 AUTHOR
-
-Erik Carlsson E<lt>info@code301.comE<gt>
-
-=head1 COPYRIGHT
-
-Copyright 2014 - Erik Carlsson
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

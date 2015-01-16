@@ -43,10 +43,6 @@ __END__
 
 =encoding utf-8
 
-=head1 NAME
-
-OpenGbg::Service::AirQuality - Data on air quality
-
 =head1 SYNOPSIS
 
     my $service = OpenGbg->new->air_quality;
@@ -77,19 +73,5 @@ C<%dates> is a hash that filters returned measurements. Its keys are C<start> an
 Given C<start =E<gt> '2014-10-15', end =E<gt> '2014-10-25'> then all measurements between 2014-10-15 00:00:00 and 2014-10-25 00:00:00 will be returned.
 
 Returns a L<GetMeasurements|OpenGbg::Service::AirQuality::GetMeasurements> object.
-
-
-=head1 AUTHOR
-
-Erik Carlsson E<lt>info@code301.comE<gt>
-
-=head1 COPYRIGHT
-
-Copyright 2014 - Erik Carlsson
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

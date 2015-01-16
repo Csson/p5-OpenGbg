@@ -5,7 +5,7 @@ use warnings;
 package OpenGbg::Service::Bridge::BridgeOpenings;
 
 # VERSION
-# ABSTRACT: A list of bridge openings
+# ABSTRACT: A list of bridge openings/closings
 
 use XML::Rabbit;
 use Kavorka;
@@ -27,11 +27,9 @@ finalize_class();
 
 __END__
 
+=pod
+
 =encoding utf-8
-
-=head1 NAME
-
-OpenGbg::Service::Bridge::BridgeOpenings - A list of open/closed statuses for Göta älvbron
 
 =head1 SYNOPSIS
 
@@ -75,18 +73,5 @@ Like C<filter> it takes a sub routine reference and passes each L<BridgeOpening|
 =head2 sort(sub { ... })
 
 Like C<filter> it takes a sub routine reference. It works just like C<sort> except the two L<BridgeOpening|OpenGbg::Service::Bridge::BridgeOpening> objects to compare are passed as C<$_[0]> and C<$_[1]>
-
-=head1 AUTHOR
-
-Erik Carlsson E<lt>info@code301.comE<gt>
-
-=head1 COPYRIGHT
-
-Copyright 2014 - Erik Carlsson
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

@@ -44,11 +44,9 @@ finalize_class();
 
 __END__
 
+=pod
+
 =encoding utf-8
-
-=head1 NAME
-
-OpenGbg::Service::TrafficCamera::CameraDevice - A traffi camera
 
 =head1 SYNOPSIS
 
@@ -88,18 +86,5 @@ String. The brand and/or model of the traffic camera.
 =head2 to_text()
 
 Returns a string with the traffic camera data in a table.
-
-=head1 AUTHOR
-
-Erik Carlsson E<lt>info@code301.comE<gt>
-
-=head1 COPYRIGHT
-
-Copyright 2014 - Erik Carlsson
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut

@@ -5,7 +5,7 @@ use warnings;
 package OpenGbg::Service::Bridge::BridgeOpening;
 
 # VERSION
-# ABSTRACT: Data on a bridge opening
+# ABSTRACT: A change in status for Göta Älvbron
 
 use XML::Rabbit;
 use DateTime;
@@ -44,11 +44,9 @@ finalize_class();
 
 __END__
 
+=pod
+
 =encoding utf-8
-
-=head1 NAME
-
-OpenGbg::Service::Bridge::BridgeOpening - A change in status for Göta Älvbron
 
 =head1 SYNOPSIS
 
@@ -72,18 +70,5 @@ The time the bridge was either open or closed.
 =head2 was_open
 
 Boolean. True if the bridge was open at C<timestamp>, false if not.
-
-=head1 AUTHOR
-
-Erik Carlsson E<lt>info@code301.comE<gt>
-
-=head1 COPYRIGHT
-
-Copyright 2014 - Erik Carlsson
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut
