@@ -4,6 +4,7 @@ use warnings;
 package OpenGbg;
 
 # VERSION
+# ABSTRACT: An interface to the Open Data API of Gothenburg
 
 use OpenGbg::Handler;
 
@@ -16,13 +17,9 @@ sub new {
 
 __END__
 
+=pod
+
 =encoding utf-8
-
-=head1 NAME
-
-OpenGbg - An interface to the Open Data API of Gothenburg
-
-=for html <p><a style="float: left;" href="https://travis-ci.org/Csson/p5-OpenGbg"><img src="https://travis-ci.org/Csson/p5-OpenGbg.svg?branch=master">&nbsp;</a>
 
 =head1 SYNOPSIS
 
@@ -87,25 +84,8 @@ All calls to services are prefixed with 'get' even if the service isn't named th
 
 Date/time intervals are always called 'start' and 'end' (in the web services they are sometimes called 'start' and 'stop').
 
-=head1 BUGS & ISSUES
-
-The repository and issue tracker is at: L<https://github.com/Csson/p5-OpenGbg>
-
 =head1 DISCLAIMER
 
 This is not an official distribution.
-
-=head1 AUTHOR
-
-Erik Carlsson E<lt>info@code301.comE<gt>
-
-=head1 COPYRIGHT
-
-Copyright 2014 - Erik Carlsson
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =cut
