@@ -1,4 +1,5 @@
-use 5.10.0;
+use 5.14.0;
+use strict;
 use warnings;
 
 # Insired by Throwable::X
@@ -10,7 +11,7 @@ package OpenGbg::Exception {
     use Moose::Role;
     use Throwable::X::Types;
 
-    use namespace::clean -except => 'meta';
+    use namespace::autoclean -except => 'meta';
 
     use Sub::Exporter -setup => {
         exports => { Payload => \'__payload' },

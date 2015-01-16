@@ -4,9 +4,11 @@ use OpenGbg::Standard::Imports;
 # PODCLASSNAME
 # ABSTRACT: Entry point to the StyrOchStall bike rental service
 
-class OpenGbg::Service::StyrOchStall using Moose {
+class OpenGbg::Service::StyrOchStall
+using Moose
+ with OpenGbg::Service::Getter {
 
-    with 'OpenGbg::Service::Getter';
+    use OpenGbg::Service::StyrOchStall::GetBikeStation;
 
     has handler => (
         is => 'ro',
