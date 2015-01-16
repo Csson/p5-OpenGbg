@@ -6,7 +6,6 @@ package OpenGbg::Service::Getter {
 
     use Moose::Role;
     use Kavorka;
-    use aliased 'OpenGbg::Exception::BadResponseFromService';
 
     method getter($service_url, $service_name) {
         $service_url = sprintf $service_url, $self->handler->key;
@@ -15,7 +14,7 @@ package OpenGbg::Service::Getter {
         my $response = $self->handler->get($url);
 
         if(!$response->{'success'}) {
-            BadResponseFromService->throw(service => ref $self.'::'.$service_name, url => $response->{'url'}, status => $response->{'status'}, reason => $response->{'reason'});
+            OpenGbg::Exception::BadResponseFromService->throw(service => ref $self.'::'.$service_name, url => $response->{'url'}, status => $response->{'status'}, reason => $response->{'reason'});
         }
         return $response->{'content'};
     }

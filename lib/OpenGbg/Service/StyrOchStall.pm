@@ -6,9 +6,6 @@ use OpenGbg::Standard::Imports;
 
 class OpenGbg::Service::StyrOchStall using Moose {
 
-    use aliased 'OpenGbg::Service::StyrOchStall::GetBikeStation';
-    use aliased 'OpenGbg::Service::StyrOchStall::GetBikeStations';
-    use aliased 'OpenGbg::Exception::BadResponseFromService';
     with 'OpenGbg::Service::Getter';
 
     has handler => (
@@ -25,7 +22,7 @@ class OpenGbg::Service::StyrOchStall using Moose {
         my $url = "GetBikeStation/$id/%s?";
         my $response = $self->getter($url, 'get_bike_station');
 
-        return GetBikeStation->new(xml => $response);
+        return OpenGbg::Service::StyrOchStall::GetBikeStation->new(xml => $response);
     }
 
     method get_bike_stations(:$lat = undef, :$long = undef, :$radius = undef) {
@@ -38,7 +35,7 @@ class OpenGbg::Service::StyrOchStall using Moose {
         my $url = "GetBikeStations/%s?$geo&";
         my $response = $self->getter($url, 'get_bike_stations');
 
-        return GetBikeStations->new(xml => $response);
+        return OpenGbg::Service::StyrOchStall::GetBikeStations->new(xml => $response);
     }
 }
 
