@@ -3,8 +3,7 @@ use 5.14.0;
 # VERSION
 # ABSTRACT: Common imports
 
-package #
-    OpenGbg::Standard::Moops {
+package OpenGbg::Standard::Imports {
 
     use base 'Moops';
     use OpenGbg::Types();

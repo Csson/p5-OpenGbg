@@ -1,4 +1,4 @@
-use OpenGbg::Standard::Moops;
+use OpenGbg::Standard::Imports;
 
 # VERSION
 # PODCLASSNAME
