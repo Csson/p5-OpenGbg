@@ -1,5 +1,9 @@
 use OpenGbg::Standard::Moops;
 
+# VERSION
+# PODCLASSNAME
+# ABSTRACT: Get the current image from a traffic camera
+
 class OpenGbg::Service::TrafficCamera::GetCameraImage using Moose {
 
     use DateTime;

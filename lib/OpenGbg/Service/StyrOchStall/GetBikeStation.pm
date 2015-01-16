@@ -2,6 +2,9 @@ use 5.14.0;
 
 package OpenGbg::Service::StyrOchStall::GetBikeStation;
 
+# VERSION
+# ABSTRACT: Get data about a bike station
+
 use OpenGbg::Types -types;
 use Kavorka;
 use XML::Rabbit::Root;

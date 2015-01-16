@@ -2,6 +2,9 @@ use 5.14.0;
 
 package OpenGbg::Service::TrafficCamera::GetTrafficCameras;
 
+# VERSION
+# ABSTRACT: Get a list of traffic cameras
+
 use OpenGbg::Types -types;
 use XML::Rabbit::Root;
 use MooseX::AttributeShortcuts;

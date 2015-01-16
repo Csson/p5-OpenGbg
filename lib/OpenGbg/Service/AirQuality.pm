@@ -1,5 +1,9 @@
 use OpenGbg::Standard::Moops;
 
+# VERSION
+# PODCLASSNAME
+# ABSTRACT: Entry point to the Air Quality service
+
 class OpenGbg::Service::AirQuality using Moose {
 
     use OpenGbg::Service::AirQuality::GetLatestMeasurement;

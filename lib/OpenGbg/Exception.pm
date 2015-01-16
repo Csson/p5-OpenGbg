@@ -4,6 +4,9 @@ use warnings;
 # Insired by Throwable::X
 package OpenGbg::Exception {
 
+    # VERSION
+    # ABSTRACT: Exception role
+
     use Moose::Role;
     use Throwable::X::Types;
 

@@ -1,5 +1,8 @@
 use OpenGbg::Standard::Moops;
 
+# VERSION
+# PODCLASSNAME
+
 class OpenGbg::Exception::BadResponseFromService with OpenGbg::Exception using Moose {
 
     use OpenGbg::Exception -all;

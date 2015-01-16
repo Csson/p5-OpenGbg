@@ -2,6 +2,9 @@ use 5.14.0;
 
 package OpenGbg::Service::Bridge::BridgeOpening;
 
+# VERSION
+# ABSTRACT: Data on a bridge opening
+
 use XML::Rabbit;
 use DateTime;
 use Kavorka;

@@ -2,6 +2,9 @@ use 5.14.0;
 
 package OpenGbg::Service::AirQuality::Measurements;
 
+# VERSION
+# ABSTRACT: A list of air quality measurements
+
 use XML::Rabbit;
 use Kavorka;
 

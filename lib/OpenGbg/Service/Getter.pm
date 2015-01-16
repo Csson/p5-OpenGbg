@@ -2,6 +2,8 @@ use 5.14.0;
 
 package OpenGbg::Service::Getter {
 
+    # VERSION
+
     use Moose::Role;
     use Kavorka;
     use aliased 'OpenGbg::Exception::BadResponseFromService';

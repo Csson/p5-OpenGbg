@@ -1,5 +1,9 @@
 use OpenGbg::Standard::Moops;
 
+# VERSION
+# PODCLASSNAME
+# ABSTRACT: Entry point to the Bridge service
+
 class OpenGbg::Service::Bridge using Moose {
 
     use OpenGbg::Service::Bridge::GetIsCurrentlyOpen;

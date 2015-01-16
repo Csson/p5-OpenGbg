@@ -2,6 +2,9 @@ use 5.14.0;
 
 package OpenGbg::Service::TrafficCamera::CameraDevices;
 
+# VERSION
+# ABSTRACT: A list of traffic cameras
+
 use XML::Rabbit;
 use Kavorka;
 

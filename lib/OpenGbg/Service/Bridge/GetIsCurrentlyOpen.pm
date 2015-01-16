@@ -2,6 +2,9 @@ use 5.14.0;
 
 package OpenGbg::Service::Bridge::GetIsCurrentlyOpen;
 
+# VERSION
+# ABSTRACT: Is the bridge currently open?
+
 use OpenGbg::Types -types;
 use XML::Rabbit::Root;
 use DateTime::Format::HTTP;

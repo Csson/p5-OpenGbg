@@ -2,6 +2,9 @@ use 5.14.0;
 
 package OpenGbg::Service::StyrOchStall::GetBikeStations;
 
+# VERSION
+# ABSTRACT: Get data on all bike stations
+
 use OpenGbg::Types -types;
 use XML::Rabbit::Root;
 use DateTime::Format::HTTP;

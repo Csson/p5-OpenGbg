@@ -2,6 +2,9 @@ use 5.14.0;
 
 package OpenGbg::Service::Bridge::GetOpenedStatus;
 
+# VERSION
+# ABSTRACT: A list of bridge openings
+
 use OpenGbg::Types -types;
 use XML::Rabbit::Root;
 use DateTime::Format::HTTP;

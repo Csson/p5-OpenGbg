@@ -1,5 +1,9 @@
 use OpenGbg::Standard::Moops;
 
+# VERSION
+# PODCLASSNAME
+# ABSTRACT: Entry point to the StyrOchStall bike rental service
+
 class OpenGbg::Service::StyrOchStall using Moose {
 
     use aliased 'OpenGbg::Service::StyrOchStall::GetBikeStation';

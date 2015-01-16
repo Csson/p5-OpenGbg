@@ -2,6 +2,9 @@ use 5.14.0;
 
 package OpenGbg::Service::StyrOchStall::Station;
 
+# VERSION
+# ABSTRACT: Data on a bike station
+
 use XML::Rabbit;
 use syntax 'qs';
 use Kavorka;

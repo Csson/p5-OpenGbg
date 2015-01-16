@@ -2,6 +2,9 @@ use 5.14.0;
 
 package OpenGbg::Service::StyrOchStall::Stations;
 
+# VERSION
+# ABSTRACT: A list of bike stations
+
 use XML::Rabbit;
 use Kavorka;
 

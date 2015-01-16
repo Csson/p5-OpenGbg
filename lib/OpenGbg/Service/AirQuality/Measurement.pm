@@ -2,6 +2,9 @@ use 5.14.0;
 
 package OpenGbg::Service::AirQuality::Measurement;
 
+# VERSION
+# ABSTRACT: An air quality measurement
+
 use utf8;
 use syntax 'qs';
 use XML::Rabbit;

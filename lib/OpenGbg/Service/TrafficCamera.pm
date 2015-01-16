@@ -1,5 +1,9 @@
 use OpenGbg::Standard::Moops;
 
+# VERSION
+# PODCLASSNAME
+# ABSTRACT: Entry point to the Traffic Camera service
+
 class OpenGbg::Service::TrafficCamera using Moose {
 
     use OpenGbg::Service::TrafficCamera::GetCameraImage;

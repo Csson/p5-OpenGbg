@@ -1,6 +1,8 @@
+use 5.14.0;
+
 package OpenGbg;
 
-use 5.14.0;
+# VERSION
 
 use OpenGbg::Handler;
 

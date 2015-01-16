@@ -2,6 +2,9 @@ use 5.14.0;
 
 package OpenGbg::Service::AirQuality::GetLatestMeasurement;
 
+# VERSION
+# ABSTRACT: Get the latest air quality measurement
+
 use OpenGbg::Types -types;
 use Kavorka;
 use XML::Rabbit::Root;

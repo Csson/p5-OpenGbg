@@ -2,6 +2,9 @@ use 5.14.0;
 
 package OpenGbg::Service::AirQuality::GetMeasurements;
 
+# VERSION
+# ABSTRACT: Get a collection of measurements
+
 use OpenGbg::Types -types;
 use XML::Rabbit::Root;
 use DateTime::Format::HTTP;

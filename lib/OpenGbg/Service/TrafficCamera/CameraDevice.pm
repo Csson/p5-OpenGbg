@@ -2,6 +2,9 @@ use 5.14.0;
 
 package OpenGbg::Service::TrafficCamera::CameraDevice;
 
+# VERSION
+# ABSTRACT: Data about a traffic camera
+
 use XML::Rabbit;
 use syntax 'qs';
 use Kavorka;

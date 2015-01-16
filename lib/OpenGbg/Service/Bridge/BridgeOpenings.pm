@@ -2,6 +2,9 @@ use 5.14.0;
 
 package OpenGbg::Service::Bridge::BridgeOpenings;
 
+# VERSION
+# ABSTRACT: A list of bridge openings
+
 use XML::Rabbit;
 use Kavorka;
 

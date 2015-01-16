@@ -1,5 +1,8 @@
 use OpenGbg::Standard::Moops;
 
+# VERSION
+# PODCLASSNAME
+
 class OpenGbg::Handler
 using Moose {
 
