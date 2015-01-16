@@ -21,7 +21,7 @@ requires 'Throwable::X';
 
 requires 'namespace::autoclean';
 requires 'syntax';
-requires 'Syntax::Feature::Qs';
+requires 'Syntax::Feature::Qs', '0.2000';
 
 on 'build' => sub {
     requires 'XML::LibXML';
