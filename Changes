@@ -4,6 +4,7 @@ Revision history for OpenGbg
  [API Changes]
 
  [Bug Fixes]
+ - Added 1; to all Moops classes (had test failures).
 
  [Documentation]
 
