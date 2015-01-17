@@ -34,6 +34,8 @@ class OpenGbg::Service::TrafficCamera::GetCameraImage using Moose {
 
 }
 
+1;
+
 __END__
 
 =pod

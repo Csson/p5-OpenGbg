@@ -35,6 +35,8 @@ class OpenGbg::Exception::BadResponseFromService with OpenGbg::Exception using M
     );
 }
 
+1;
+
 __END__
 
 =encoding utf-8
