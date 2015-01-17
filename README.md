@@ -4,7 +4,7 @@ OpenGbg - An interface to the Open Data API of Gothenburg
 
 # VERSION
 
-Version 0.1301, released 2015-01-16.
+Version 0.1302, released 2015-01-17.
 
 # SYNOPSIS
 

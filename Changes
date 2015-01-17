@@ -15,6 +15,21 @@ Revision history for OpenGbg
 
  [Revision]
 
+0.1301 2015-01-16T18:25:04Z CET
+ [Documentation]
+ - Reformatted (now built with Pod::Weaver)
+ - Added PODNAME to those that need it
+
+ [Enhancements]
+ - Added strict and warnings to all non-Moops classes
+
+ [Meta]
+ - Uses @Author::CSSON dist zilla bundle, expanded
+ - Modules added to provides
+ - Renamed OpenGbg::Standard::Moops -> ::Imports
+ - Bumped required version of Syntax::Feature::Qs, which no longer uses
+   Syntax::Feature::Simple::V2
+
 0.1300 2014-12-18T01:31:19Z CET
  [Meta]
  - Linked Github repo/issues.
