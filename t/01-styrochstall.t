@@ -14,7 +14,7 @@ if(!$has_conf_file) {
 
 my $open = OpenGbg->new;
 
-is ref $open, 'OpenGbg::Handler', 'Right object';
+is ref $open, 'OpenGbg', 'Right object';
 
 is $open->styr_och_stall->get_bike_station(1)->station->label, 'Lilla Bommen', 'Found Lilla Bommen';
 
