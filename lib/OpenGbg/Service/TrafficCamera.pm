@@ -1,7 +1,6 @@
 use 5.10.1;
 use strict;
 use warnings;
-use OpenGbg::Standard::Imports;
 
 package OpenGbg::Service::TrafficCamera;
 
