@@ -4,6 +4,7 @@ use File::HomeDir;
 use Path::Tiny;
 use OpenGbg;
 
+use if $ENV{'AUTHOR_TESTING'}, 'Test::Warnings';
 
 my $home = File::HomeDir->my_home;
 my $has_conf_file = path($home)->child('.opengbg.ini')->exists;
@@ -17,4 +18,3 @@ my $open = OpenGbg->new;
 is $open->air_quality->get_latest_measurement->measurement->temperature_unit, 'degrees C', 'Got temperature unit';
 
 done_testing;
-
