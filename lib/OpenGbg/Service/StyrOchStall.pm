@@ -14,6 +14,7 @@ use namespace::autoclean;
 use Types::Standard qw/Str/;
 
 use OpenGbg::Service::StyrOchStall::GetBikeStation;
+use OpenGbg::Service::StyrOchStall::GetBikeStations;
 
 has handler => (
     is => 'ro',
@@ -62,9 +63,9 @@ __END__
 =head1 SYNOPSIS
 
     my $service = OpenGbg->new->styr_och_stall;
-    my $response = $service->get_bike_stations;
+    my $stations = $service->get_bike_stations;
 
-    print $response->stations->get_by_index(0)->to_text;
+    print $stations->get_by_index(0)->to_text;
 
 =head1 DESCRIPTION
 
