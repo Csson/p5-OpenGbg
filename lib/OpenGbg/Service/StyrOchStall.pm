@@ -1,45 +1,58 @@
-use OpenGbg::Standard::Imports;
+use 5.10.1;
+use strict;
+use warnings;
+
+package OpenGbg::Service::StyrOchStall;
 
 # VERSION
-# PODCLASSNAME
 # ABSTRACT: Entry point to the StyrOchStall bike rental service
 
-class OpenGbg::Service::StyrOchStall
-using Moose
- with OpenGbg::Service::Getter {
+use OpenGbg::Elk;
+with 'OpenGbg::Service::Getter';
 
-    use OpenGbg::Service::StyrOchStall::GetBikeStation;
+use namespace::autoclean;
+use Types::Standard qw/Str/;
 
-    has handler => (
-        is => 'ro',
-        required => 1,
-    );
-    has service_base => (
-        is => 'rw',
-        isa => Str,
-        default => 'StyrOchStall/v0.1/',
-    );
+use OpenGbg::Service::StyrOchStall::GetBikeStation;
+use OpenGbg::Service::StyrOchStall::GetBikeStations;
 
-    method get_bike_station($id) {
-        my $url = "GetBikeStation/$id/%s?";
-        my $response = $self->getter($url, 'get_bike_station');
+has handler => (
+    is => 'ro',
+    required => 1,
+);
+has service_base => (
+    is => 'rw',
+    isa => Str,
+    default => 'StyrOchStall/v0.1/',
+);
 
-        return OpenGbg::Service::StyrOchStall::GetBikeStation->new(xml => $response);
-    }
+sub get_bike_station {
+    my $self = shift;
+    my $id = shift;
 
-    method get_bike_stations(:$lat = undef, :$long = undef, :$radius = undef) {
-        my $geo = '';
-        if($lat && $long && $radius) {
-            my %hash = ( latitude => $lat, longitude => $long, radius => $radius );
-            $geo = join '&' => map { "$_=$hash{ $_ }" } keys %hash;
-        }
+    my $url = "GetBikeStation/$id/%s?";
+    my $response = $self->getter($url, 'get_bike_station');
 
-        my $url = "GetBikeStations/%s?$geo&";
-        my $response = $self->getter($url, 'get_bike_stations');
-
-        return OpenGbg::Service::StyrOchStall::GetBikeStations->new(xml => $response);
-    }
+    return OpenGbg::Service::StyrOchStall::GetBikeStation->new(xml => $response);
 }
+
+sub get_bike_stations {
+    my $self = shift;
+    my %args = @_;
+
+    my $geo = '';
+    if(exists $args{'lat'} && exists $args{'long'}) {
+        my %hash = ( latitude => $args{'lat'}, longitude => $args{'long'}, radius => $args{'radius'} );
+        $geo = join '&' => map { "$_=$hash{ $_ }" } keys %hash;
+    }
+
+    my $url = "GetBikeStations/%s?$geo&";
+    my $response = $self->getter($url, 'get_bike_stations');
+
+    return OpenGbg::Service::StyrOchStall::GetBikeStations->new(xml => $response);
+}
+
+__PACKAGE__->meta->make_immutable;
 
 1;
 
@@ -50,9 +63,9 @@ __END__
 =head1 SYNOPSIS
 
     my $service = OpenGbg->new->styr_och_stall;
-    my $response = $service->get_bike_stations;
+    my $stations = $service->get_bike_stations;
 
-    print $response->stations->get_by_index(0)->to_text;
+    print $stations->get_by_index(0)->to_text;
 
 =head1 DESCRIPTION
 

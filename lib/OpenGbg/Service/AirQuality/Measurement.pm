@@ -1,4 +1,4 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
 
@@ -11,9 +11,8 @@ use utf8;
 use syntax 'qs';
 use XML::Rabbit;
 use DateTime::Format::HTTP;
-use Kavorka;
 use MooseX::AttributeShortcuts;
-use OpenGbg::Types -types;
+use Types::DateTime qw/DateTime/;
 
 has_xpath_value _starttime => './x:StartTime';
 has_xpath_value _endtime => './x:StopTime';
@@ -64,47 +63,61 @@ has_xpath_value _pm2_5_unit => './x:AirQuality/x:PM2_5/x:Unit';
 has_xpath_value pm2_5_index => './x:AirQuality/x:PM2_5/x:Index';
 
 
-method solar_insolation {
+sub solar_insolation {
+    my $self = shift;
     return length $self->_solar_insolation ? $self->_solar_insolation : 0;
 }
-method rainfall {
+sub rainfall {
+    my $self = shift;
     return length $self->_rainfall ? $self->_rainfall : 0;
 }
-method temperature_unit {
+sub temperature_unit {
+    my $self = shift;
     return $self->_temperature_unit eq '°C' ? 'degrees C' : $self->_temperature_unit;
 }
-method wind_direction_unit {
+sub wind_direction_unit {
+    my $self = shift;
     return $self->_wind_direction_unit eq '°' ? 'degrees' : $self->_wind_direction_unit;
 }
 
-method microutf_to_ascii($unit) {
+sub microutf_to_ascii {
+    my $self = shift;
+    my $unit = shift;
+
     return $self->_pm2_5_unit eq 'µg/m3' || $self->_pm2_5_unit eq 'ug/m3' ? 'microgram/m3' : $unit;
 }
 
-method no2_unit {
+sub no2_unit {
+    my $self = shift;
     return $self->microutf_to_ascii($self->_no2_unit);
 }
-method so2_unit {
+sub so2_unit {
+    my $self = shift;
     return $self->microutf_to_ascii($self->_so2_unit);
 }
-method o3_unit {
+sub o3_unit {
+    my $self = shift;
     return $self->microutf_to_ascii($self->_o3_unit);
 }
-method co_unit {
+sub co_unit {
+    my $self = shift;
     return $self->microutf_to_ascii($self->_co_unit);
 }
-method pm10_unit {
+sub pm10_unit {
+    my $self = shift;
     return $self->microutf_to_ascii($self->_pm10_unit);
 }
-method nox_unit {
+sub nox_unit {
+    my $self = shift;
     return $self->microutf_to_ascii($self->_nox_unit);
 }
-method pm2_5_unit {
+sub pm2_5_unit {
+    my $self = shift;
     return $self->microutf_to_ascii($self->_pm2_5_unit);
 }
 
-
-method index_to_levels($index) {
+sub index_to_levels {
+    my $index = shift;
     return $index if !$index;
     return $index >= 3 ? 'very high levels'
          : $index >= 2 ? 'high levels'
@@ -112,34 +125,38 @@ method index_to_levels($index) {
          :               'low levels'
          ;
 }
-method total_levels {
+sub total_levels {
+    my $self = shift;
     return $self->index_to_levels($self->total_index);
 }
-method no2_levels {
+sub no2_levels {
+    my $self = shift;
     return $self->index_to_levels($self->no2_index);
 }
-method so2_levels {
+sub so2_levels {
+    my $self = shift;
     return $self->index_to_levels($self->so2_index);
 }
-method o3_levels {
+sub o3_levels {
+    my $self = shift;
     return $self->index_to_levels($self->o3_index);
 }
-method co_levels {
+sub co_levels {
+    my $self = shift;
     return $self->index_to_levels($self->co_index);
 }
-method pm10_levels {
+sub pm10_levels {
+    my $self = shift;
     return $self->index_to_levels($self->pm10_index);
 }
-method nox_levels {
+sub nox_levels {
+    my $self = shift;
     return $self->index_to_levels($self->nox_index);
 }
-method pm2_5_levels {
+sub pm2_5_levels {
+    my $self = shift;
     return $self->index_to_levels($self->pm2_5_index);
 }
-
-
-
-
 
 
 has starttime => (
@@ -156,14 +173,17 @@ has endtime => (
     builder => 1,
 );
 
-method _build_starttime {
+sub _build_starttime {
+    my $self = shift;
     return DateTime::Format::HTTP->parse_datetime($self->_starttime);
 }
-method _build_endtime {
+sub _build_endtime {
+    my $self = shift;
     return DateTime::Format::HTTP->parse_datetime($self->_endtime);
 }
 
-method to_text {
+sub to_text {
+    my $self = shift;
     return sprintf "\n%s %s -- %s %s\n%s%s", $self->starttime->ymd('-'),
                                              $self->starttime->hms(':'),
                                              $self->endtime->ymd('-'),
@@ -172,7 +192,9 @@ method to_text {
                                              $self->air_quality_to_text;
 }
 
-method weather_to_text {
+sub weather_to_text {
+    my $self = shift;
+
     return sprintf qs{
         Temperature:         %7.2f %s
         Humiditiy:           %7.2f %s
@@ -199,7 +221,9 @@ method weather_to_text {
     ;
 }
 
-method air_quality_to_text {
+sub air_quality_to_text {
+    my $self = shift;
+
     no warnings 'numeric';
     return sprintf qs{
         Total index:                               [ %4s ] [ %-16s ]

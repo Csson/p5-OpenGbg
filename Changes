@@ -2,6 +2,27 @@ Revision history for OpenGbg
 
 {{$NEXT}}
  [API Changes]
+  - Breaking changes on StyrOchStall: Removed the extra method call to ->stations or ->station.
+
+ [Bug Fixes]
+  - get_bike_stations did not work correctly. Fixed and added test.
+
+ [Documentation]
+
+ [Enhancements]
+
+ [Requirements]
+  - Replaced Throwable::X with Throwable::SugarFactory.
+  - Removed dependency on Moops/Kavorka; should now work on 5.10+ (instead of 5.14+).
+
+ [New Features]
+
+ [Other Changes]
+  - Rebuilt with dzil plugins in Dist::Iller::Config::Author::CSSON.
+  - Moved OpenGbg::Handler into OpenGbg since the wrapping is no longer necessary.
+
+0.1302 2015-01-17T16:26:43Z CET
+ [API Changes]
 
  [Bug Fixes]
  - Added 1; to all Moops classes (had test failures).

@@ -1,38 +1,44 @@
-use OpenGbg::Standard::Imports;
+use 5.10.1;
+use strict;
+use warnings;
+
+package OpenGbg::Service::TrafficCamera::GetCameraImage;
 
 # VERSION
-# PODCLASSNAME
 # ABSTRACT: Get the current image from a traffic camera
 
-class OpenGbg::Service::TrafficCamera::GetCameraImage using Moose {
+use OpenGbg::Elk;
+use namespace::autoclean;
+use Types::Standard qw/Int/;
+use Types::DateTime qw/DateTime/;
 
-    use DateTime;
+use DateTime;
 
-    has image => (
-        is => 'ro',
-    );
-    has image_size => (
-        is => 'ro',
-        isa => Int,
-        lazy => 1,
-        builder => 1,
-    );
-    has timestamp => (
-        is => 'ro',
-        isa => DateTime,
-        lazy => 1,
-        builder => 1,
-    );
+has image => (
+    is => 'ro',
+);
+has image_size => (
+    is => 'ro',
+    isa => Int,
+    lazy => 1,
+    builder => 1,
+);
+has timestamp => (
+    is => 'ro',
+    isa => DateTime,
+    lazy => 1,
+    builder => 1,
+);
 
-    method _build_image_size {
-        return length $self->image;
-    }
-
-    method _build_timestamp {
-        my $datetime = DateTime::->now->truncate(to => 'minute')->set_time_zone('Europe/Stockholm');
-    }
-
+sub _build_image_size {
+    return length shift->image;
 }
+
+sub _build_timestamp {
+    my $datetime = DateTime::->now->truncate(to => 'minute')->set_time_zone('Europe/Stockholm');
+}
+
+__PACKAGE__->meta->make_immutable;
 
 1;
 

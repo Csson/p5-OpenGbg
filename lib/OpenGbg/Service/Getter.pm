@@ -1,25 +1,28 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
 
-package OpenGbg::Service::Getter {
+package OpenGbg::Service::Getter;
 
-    # VERSION
+# VERSION
 
-    use Moose::Role;
-    use Kavorka;
+use Moose::Role;
+use OpenGbg::Exceptions;
 
-    method getter($service_url, $service_name) {
-        $service_url = sprintf $service_url, $self->handler->key;
-        my $url = $self->handler->base . $self->service_base . $service_url.'format=xml';
+sub getter {
+    my $self = shift;
+    my $service_url = shift;
+    my $service_name = shift;
 
-        my $response = $self->handler->get($url);
+    $service_url = sprintf $service_url, $self->handler->key;
+    my $url = $self->handler->base . $self->service_base . $service_url.'format=xml';
 
-        if(!$response->{'success'}) {
-            OpenGbg::Exception::BadResponseFromService->throw(service => ref $self.'::'.$service_name, url => $response->{'url'}, status => $response->{'status'}, reason => $response->{'reason'});
-        }
-        return $response->{'content'};
+    my $response = $self->handler->get($url);
+
+    if(!$response->{'success'}) {
+        die bad_response_from_service service => join ('::', $self, $service_name), url => $response->{'url'}, status => $response->{'status'}, reason => $response->{'reason'};
     }
+    return $response->{'content'};
 }
 
 1;

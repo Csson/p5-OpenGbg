@@ -1,4 +1,4 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
 
@@ -9,7 +9,6 @@ package OpenGbg::Service::TrafficCamera::CameraDevice;
 
 use XML::Rabbit;
 use syntax 'qs';
-use Kavorka;
 use utf8;
 
 has_xpath_value id => './x:ID';
@@ -22,7 +21,9 @@ has_xpath_value description => './x:Description';
 
 has_xpath_value model => './x:Model';
 
-method to_text {
+sub to_text {
+    my $self = shift;
+
     return sprintf qs{
                 Id:                    %s
                 Description:           %s

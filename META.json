@@ -4,7 +4,7 @@
       "Erik Carlsson <info@code301.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.029, CPAN::Meta::Converter version 2.143240",
+   "generated_by" : "Dist::Zilla version 5.043, Dist::Iller version 0.1204, CPAN::Meta::Converter version 2.143240",
    "license" : [
       "perl_5"
    ],
@@ -15,28 +15,89 @@
    "name" : "OpenGbg",
    "no_index" : {
       "directory" : [
-         "t",
-         "xt",
+         "eg",
+         "examples",
          "inc",
          "share",
-         "eg",
-         "examples"
+         "t",
+         "xt"
       ]
    },
    "prereqs" : {
-      "build" : {
-         "requires" : {
-            "XML::LibXML" : "0"
-         }
-      },
       "configure" : {
          "requires" : {
-            "Module::Build::Tiny" : "0.039"
+            "ExtUtils::MakeMaker" : "0"
          }
       },
       "develop" : {
          "requires" : {
-            "Test::Pod" : "1.41"
+            "Dist::Iller::Config::Author::CSSON" : "0",
+            "Dist::Zilla::Plugin::CheckChangesHasContent" : "0",
+            "Dist::Zilla::Plugin::Clean" : "0",
+            "Dist::Zilla::Plugin::ConfirmRelease" : "0",
+            "Dist::Zilla::Plugin::CopyFilesFromBuild" : "0",
+            "Dist::Zilla::Plugin::DistIller::MetaGeneratedBy" : "0",
+            "Dist::Zilla::Plugin::ExecDir" : "0",
+            "Dist::Zilla::Plugin::Git::Check" : "0",
+            "Dist::Zilla::Plugin::Git::Contributors" : "0",
+            "Dist::Zilla::Plugin::Git::GatherDir" : "0",
+            "Dist::Zilla::Plugin::Git::Push" : "0",
+            "Dist::Zilla::Plugin::Git::Tag" : "0",
+            "Dist::Zilla::Plugin::GithubMeta" : "0",
+            "Dist::Zilla::Plugin::InstallRelease" : "0",
+            "Dist::Zilla::Plugin::License" : "0",
+            "Dist::Zilla::Plugin::MakeMaker" : "0",
+            "Dist::Zilla::Plugin::Manifest" : "0",
+            "Dist::Zilla::Plugin::ManifestSkip" : "0",
+            "Dist::Zilla::Plugin::MetaJSON" : "0",
+            "Dist::Zilla::Plugin::MetaNoIndex" : "0",
+            "Dist::Zilla::Plugin::MetaProvides::Class" : "0",
+            "Dist::Zilla::Plugin::MetaProvides::Package" : "0",
+            "Dist::Zilla::Plugin::MetaYAML" : "0",
+            "Dist::Zilla::Plugin::NextRelease" : "0",
+            "Dist::Zilla::Plugin::NextVersion::Semantic" : "0",
+            "Dist::Zilla::Plugin::OurPkgVersion" : "0",
+            "Dist::Zilla::Plugin::PodSyntaxTests" : "0",
+            "Dist::Zilla::Plugin::PodWeaver" : "0",
+            "Dist::Zilla::Plugin::PodnameFromClassname" : "0",
+            "Dist::Zilla::Plugin::Prereqs" : "0",
+            "Dist::Zilla::Plugin::Prereqs::Plugins" : "0",
+            "Dist::Zilla::Plugin::PreviousVersion::Changelog" : "0",
+            "Dist::Zilla::Plugin::Readme" : "0",
+            "Dist::Zilla::Plugin::ReadmeAnyFromPod" : "0",
+            "Dist::Zilla::Plugin::ReversionOnRelease" : "0",
+            "Dist::Zilla::Plugin::RunExtraTests" : "0",
+            "Dist::Zilla::Plugin::ShareDir" : "0",
+            "Dist::Zilla::Plugin::Test::Compile" : "0",
+            "Dist::Zilla::Plugin::Test::EOF" : "0",
+            "Dist::Zilla::Plugin::Test::EOL" : "0",
+            "Dist::Zilla::Plugin::Test::Kwalitee::Extra" : "0",
+            "Dist::Zilla::Plugin::Test::NoTabs" : "0",
+            "Dist::Zilla::Plugin::Test::ReportPrereqs" : "0",
+            "Dist::Zilla::Plugin::Test::Version" : "0",
+            "Dist::Zilla::Plugin::TestRelease" : "0",
+            "Dist::Zilla::Plugin::TravisYML" : "0",
+            "Dist::Zilla::Plugin::UploadToCPAN" : "0",
+            "Pod::Elemental::Transformer::List" : "0",
+            "Pod::Weaver::Plugin::SingleEncoding" : "0",
+            "Pod::Weaver::Plugin::Transformer" : "0",
+            "Pod::Weaver::PluginBundle::CorePrep" : "0",
+            "Pod::Weaver::Section::Authors" : "0",
+            "Pod::Weaver::Section::Badges" : "0",
+            "Pod::Weaver::Section::Collect" : "0",
+            "Pod::Weaver::Section::Generic" : "0",
+            "Pod::Weaver::Section::Homepage::DefaultCPAN" : "0",
+            "Pod::Weaver::Section::Leftovers" : "0",
+            "Pod::Weaver::Section::Legal" : "0",
+            "Pod::Weaver::Section::Name" : "0",
+            "Pod::Weaver::Section::Region" : "0",
+            "Pod::Weaver::Section::Source::DefaultGitHub" : "0",
+            "Pod::Weaver::Section::Version" : "0",
+            "Test::EOL" : "0",
+            "Test::More" : "0",
+            "Test::NoTabs" : "0",
+            "Test::Pod" : "1.41",
+            "Test::Warnings" : "0"
          }
       },
       "runtime" : {
@@ -46,133 +107,126 @@
             "DateTime::Format::HTTP" : "0",
             "File::HomeDir" : "0",
             "HTTP::Tiny" : "0",
-            "Kavorka" : "0",
-            "Moops" : "0",
-            "Moose" : "0",
+            "Moose" : "2.1400",
             "MooseX::AttributeShortcuts" : "0",
             "Path::Tiny" : "0",
             "Sub::Exporter" : "0",
-            "Syntax::Feature::Qs" : "0.2001",
-            "Throwable::X" : "0",
+            "Syntax::Feature::Qs" : "0.2004",
+            "Throwable::SugarFactory" : "0.152700",
             "Type::Tiny" : "0",
             "Types::DateTime" : "0",
             "Types::Path::Tiny" : "0",
-            "XML::LibXML" : "0",
-            "XML::Rabbit" : "0",
-            "namespace::autoclean" : "0",
-            "perl" : "5.014000",
+            "XML::Rabbit" : "v0.4.1",
+            "namespace::autoclean" : "0.18",
+            "perl" : "5.010001",
             "syntax" : "0"
+         }
+      },
+      "test" : {
+         "recommends" : {
+            "CPAN::Meta" : "2.120900"
+         },
+         "requires" : {
+            "ExtUtils::MakeMaker" : "0",
+            "File::Spec" : "0",
+            "IO::Handle" : "0",
+            "IPC::Open3" : "0",
+            "Test::More" : "0.96"
          }
       }
    },
    "provides" : {
       "OpenGbg" : {
          "file" : "lib/OpenGbg.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
-      "OpenGbg::Exception" : {
-         "file" : "lib/OpenGbg/Exception.pm",
-         "version" : "0.1302"
+      "OpenGbg::Elk" : {
+         "file" : "lib/OpenGbg/Elk.pm",
+         "version" : "0.1303"
       },
-      "OpenGbg::Exception::BadResponseFromService" : {
-         "file" : "lib/OpenGbg/Exception/BadResponseFromService.pm",
-         "version" : "0.1302"
-      },
-      "OpenGbg::Handler" : {
-         "file" : "lib/OpenGbg/Handler.pm",
-         "version" : "0.1302"
+      "OpenGbg::Exceptions" : {
+         "file" : "lib/OpenGbg/Exceptions.pm",
+         "version" : "0.1303"
       },
       "OpenGbg::Service::AirQuality" : {
          "file" : "lib/OpenGbg/Service/AirQuality.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::AirQuality::GetLatestMeasurement" : {
          "file" : "lib/OpenGbg/Service/AirQuality/GetLatestMeasurement.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::AirQuality::GetMeasurements" : {
          "file" : "lib/OpenGbg/Service/AirQuality/GetMeasurements.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::AirQuality::Measurement" : {
          "file" : "lib/OpenGbg/Service/AirQuality/Measurement.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::AirQuality::Measurements" : {
          "file" : "lib/OpenGbg/Service/AirQuality/Measurements.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::Bridge" : {
          "file" : "lib/OpenGbg/Service/Bridge.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::Bridge::BridgeOpening" : {
          "file" : "lib/OpenGbg/Service/Bridge/BridgeOpening.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::Bridge::BridgeOpenings" : {
          "file" : "lib/OpenGbg/Service/Bridge/BridgeOpenings.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::Bridge::GetIsCurrentlyOpen" : {
          "file" : "lib/OpenGbg/Service/Bridge/GetIsCurrentlyOpen.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::Bridge::GetOpenedStatus" : {
          "file" : "lib/OpenGbg/Service/Bridge/GetOpenedStatus.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::Getter" : {
          "file" : "lib/OpenGbg/Service/Getter.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::StyrOchStall" : {
          "file" : "lib/OpenGbg/Service/StyrOchStall.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::StyrOchStall::GetBikeStation" : {
          "file" : "lib/OpenGbg/Service/StyrOchStall/GetBikeStation.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::StyrOchStall::GetBikeStations" : {
          "file" : "lib/OpenGbg/Service/StyrOchStall/GetBikeStations.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::StyrOchStall::Station" : {
          "file" : "lib/OpenGbg/Service/StyrOchStall/Station.pm",
-         "version" : "0.1302"
-      },
-      "OpenGbg::Service::StyrOchStall::Stations" : {
-         "file" : "lib/OpenGbg/Service/StyrOchStall/Stations.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::TrafficCamera" : {
          "file" : "lib/OpenGbg/Service/TrafficCamera.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::TrafficCamera::CameraDevice" : {
          "file" : "lib/OpenGbg/Service/TrafficCamera/CameraDevice.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::TrafficCamera::CameraDevices" : {
          "file" : "lib/OpenGbg/Service/TrafficCamera/CameraDevices.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::TrafficCamera::GetCameraImage" : {
          "file" : "lib/OpenGbg/Service/TrafficCamera/GetCameraImage.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::TrafficCamera::GetTrafficCameras" : {
          "file" : "lib/OpenGbg/Service/TrafficCamera/GetTrafficCameras.pm",
-         "version" : "0.1302"
-      },
-      "OpenGbg::Standard::Imports" : {
-         "file" : "lib/OpenGbg/Standard/Imports.pm",
-         "version" : "0.1302"
-      },
-      "OpenGbg::Types" : {
-         "file" : "lib/OpenGbg/Types.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       }
    },
    "release_status" : "stable",
@@ -187,6 +241,6 @@
          "web" : "https://github.com/Csson/p5-OpenGbg"
       }
    },
-   "version" : "0.1302"
+   "version" : "0.1303"
 }
 

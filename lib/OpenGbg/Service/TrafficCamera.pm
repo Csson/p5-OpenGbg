@@ -1,39 +1,51 @@
-use OpenGbg::Standard::Imports;
+use 5.10.1;
+use strict;
+use warnings;
+
+package OpenGbg::Service::TrafficCamera;
 
 # VERSION
-# PODCLASSNAME
 # ABSTRACT: Entry point to the Traffic Camera service
 
-class OpenGbg::Service::TrafficCamera using Moose {
+use OpenGbg::Elk;
 
-    use OpenGbg::Service::TrafficCamera::GetCameraImage;
-    use OpenGbg::Service::TrafficCamera::GetTrafficCameras;
-    with 'OpenGbg::Service::Getter';
+use namespace::autoclean;
+use Types::Standard qw/Str/;
 
-    has handler => (
-        is => 'ro',
-        required => 1,
-    );
-    has service_base => (
-        is => 'rw',
-        isa => Str,
-        default => 'TrafficCamera/v0.1/',
-    );
+use OpenGbg::Service::TrafficCamera::GetCameraImage;
+use OpenGbg::Service::TrafficCamera::GetTrafficCameras;
+with 'OpenGbg::Service::Getter';
 
-    method get_camera_image($id) {
-        my $url = "CameraImage/%s/$id?";
-        my $response = $self->getter($url, 'get_camera_image');
+has handler => (
+    is => 'ro',
+    required => 1,
+);
+has service_base => (
+    is => 'rw',
+    isa => Str,
+    default => 'TrafficCamera/v0.1/',
+);
 
-        return OpenGbg::Service::TrafficCamera::GetCameraImage->new(image => $response);
-    }
+sub get_camera_image {
+    my $self = shift;
+    my $id = shift;
 
-    method get_traffic_cameras {
-        my $url = 'TrafficCameras/%s?';
-        my $response = $self->getter($url, 'get_traffic_cameras');
+    my $url = "CameraImage/%s/$id?";
+    my $response = $self->getter($url, 'get_camera_image');
 
-        return OpenGbg::Service::TrafficCamera::GetTrafficCameras->new(xml => $response);
-    }
+    return OpenGbg::Service::TrafficCamera::GetCameraImage->new(image => $response);
 }
+
+sub get_traffic_cameras {
+    my $self = shift;
+
+    my $url = 'TrafficCameras/%s?';
+    my $response = $self->getter($url, 'get_traffic_cameras');
+
+    return OpenGbg::Service::TrafficCamera::GetTrafficCameras->new(xml => $response);
+}
+
+__PACKAGE__->meta->make_immutable;
 
 1;
 

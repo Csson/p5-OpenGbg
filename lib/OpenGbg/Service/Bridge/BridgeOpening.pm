@@ -1,4 +1,4 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
 
@@ -8,10 +8,10 @@ package OpenGbg::Service::Bridge::BridgeOpening;
 # ABSTRACT: A change in status for Göta Älvbron
 
 use XML::Rabbit;
-use DateTime;
-use Kavorka;
+use DateTime::Format::HTTP;
 use MooseX::AttributeShortcuts;
-use OpenGbg::Types -types;
+use Types::DateTime qw/DateTime/;
+use Types::Standard qw/Bool/;
 
 has_xpath_value _timestamp => './x:TimeStamp';
 
@@ -31,11 +31,11 @@ has was_open => (
     builder => 1,
 );
 
-method _build_timestamp {
-    return DateTime::Format::HTTP->parse_datetime($self->_timestamp);
+sub _build_timestamp {
+    return DateTime::Format::HTTP->parse_datetime(shift->_timestamp);
 }
-method _build_was_open {
-    return $self->_was_open eq 'true';
+sub _build_was_open {
+    return shift->_was_open eq 'true';
 }
 
 finalize_class();

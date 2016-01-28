@@ -1,4 +1,4 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
 
@@ -7,11 +7,8 @@ package OpenGbg::Service::AirQuality::GetLatestMeasurement;
 # VERSION
 # ABSTRACT: Get the latest air quality measurement
 
-use OpenGbg::Types -types;
-use Kavorka;
 use XML::Rabbit::Root;
-use DateTime::Format::HTTP;
-use MooseX::AttributeShortcuts;
+use Types::Standard qw/Str/;
 
 has xml => (
     is => 'ro',
