@@ -2,10 +2,10 @@ use 5.10.1;
 use strict;
 use warnings;
 
+package OpenGbg::Service::StyrOchStall;
+
 # VERSION
 # ABSTRACT: Entry point to the StyrOchStall bike rental service
-
-package OpenGbg::Service::StyrOchStall;
 
 use OpenGbg::Elk;
 with 'OpenGbg::Service::Getter';
