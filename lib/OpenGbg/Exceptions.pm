@@ -14,6 +14,6 @@ exception BadResponseFromService
        => has => [url => (is => 'ro')]
        => has => [status => (is => 'ro')]
        => has => [reason => (is => 'ro')]
-       ];
+       ;
 
 1;
