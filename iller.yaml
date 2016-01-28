@@ -1,0 +1,47 @@
+---
+doctype: dist
+
+header:
+  name: OpenGbg
+
+prereqs:
+  runtime:
+    requires:
+     - perl: 5.010001
+     - Moose: 2.1400
+     - namespace::autoclean: 0.18
+     - XML::Rabbit: 0.4.1
+     - Config::Any
+     - DateTime
+     - DateTime::Format::HTTP
+     - File::HomeDir
+     - HTTP::Tiny
+     - Kavorka
+     - Moops
+     - MooseX::AttributeShortcuts
+     - Path::Tiny
+     - Sub::Exporter
+     - Type::Tiny
+     - Types::DateTime
+     - Types::Path::Tiny
+     - Throwable::X
+     - syntax
+     - Syntax::Feature::Qs: 0.2004
+
+plugins:
+ - +config: Author::CSSON
+
+ - +extend_plugin: TravisYML
+   post_before_install:
+    - sudo apt-get update -qq && sudo apt-get install -y libxml2-dev
+   pre_install:
+    - cpanm XML::LibXML XML::Rabbit
+
+ - +plugin: MetaProvides::FromFile
+   file: meta.ini
+
+---
+doctype: weaver
+
+plugins:
+ - +config: Author::CSSON
