@@ -16,15 +16,13 @@ prereqs:
      - DateTime::Format::HTTP
      - File::HomeDir
      - HTTP::Tiny
-     - Kavorka
-     - Moops
      - MooseX::AttributeShortcuts
      - Path::Tiny
      - Sub::Exporter
      - Type::Tiny
      - Types::DateTime
      - Types::Path::Tiny
-     - Throwable::X
+     - Throwable::SugarFactory: 0.152700
      - syntax
      - Syntax::Feature::Qs: 0.2004
 
@@ -36,9 +34,6 @@ plugins:
     - sudo apt-get update -qq && sudo apt-get install -y libxml2-dev
    pre_install:
     - cpanm XML::LibXML XML::Rabbit
-
- - +plugin: MetaProvides::FromFile
-   file: meta.ini
 
 ---
 doctype: weaver

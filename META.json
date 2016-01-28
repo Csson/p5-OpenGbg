@@ -52,7 +52,6 @@
             "Dist::Zilla::Plugin::MetaJSON" : "0",
             "Dist::Zilla::Plugin::MetaNoIndex" : "0",
             "Dist::Zilla::Plugin::MetaProvides::Class" : "0",
-            "Dist::Zilla::Plugin::MetaProvides::FromFile" : "0",
             "Dist::Zilla::Plugin::MetaProvides::Package" : "0",
             "Dist::Zilla::Plugin::MetaYAML" : "0",
             "Dist::Zilla::Plugin::NextRelease" : "0",
@@ -108,14 +107,12 @@
             "DateTime::Format::HTTP" : "0",
             "File::HomeDir" : "0",
             "HTTP::Tiny" : "0",
-            "Kavorka" : "0",
-            "Moops" : "0",
             "Moose" : "2.1400",
             "MooseX::AttributeShortcuts" : "0",
             "Path::Tiny" : "0",
             "Sub::Exporter" : "0",
             "Syntax::Feature::Qs" : "0.2004",
-            "Throwable::X" : "0",
+            "Throwable::SugarFactory" : "0.152700",
             "Type::Tiny" : "0",
             "Types::DateTime" : "0",
             "Types::Path::Tiny" : "0",
@@ -141,111 +138,99 @@
    "provides" : {
       "OpenGbg" : {
          "file" : "lib/OpenGbg.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
-      "OpenGbg::Exception" : {
-         "file" : "lib/OpenGbg/Exception.pm",
-         "version" : "0.1302"
+      "OpenGbg::Elk" : {
+         "file" : "lib/OpenGbg/Elk.pm",
+         "version" : "0.1303"
       },
-      "OpenGbg::Exception::BadResponseFromService" : {
-         "file" : "lib/OpenGbg/Exception/BadResponseFromService.pm",
-         "version" : "0.1302"
-      },
-      "OpenGbg::Handler" : {
-         "file" : "lib/OpenGbg/Handler.pm",
-         "version" : "0.1302"
+      "OpenGbg::Exceptions" : {
+         "file" : "lib/OpenGbg/Exceptions.pm",
+         "version" : "0.1303"
       },
       "OpenGbg::Service::AirQuality" : {
          "file" : "lib/OpenGbg/Service/AirQuality.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::AirQuality::GetLatestMeasurement" : {
          "file" : "lib/OpenGbg/Service/AirQuality/GetLatestMeasurement.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::AirQuality::GetMeasurements" : {
          "file" : "lib/OpenGbg/Service/AirQuality/GetMeasurements.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::AirQuality::Measurement" : {
          "file" : "lib/OpenGbg/Service/AirQuality/Measurement.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::AirQuality::Measurements" : {
          "file" : "lib/OpenGbg/Service/AirQuality/Measurements.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::Bridge" : {
          "file" : "lib/OpenGbg/Service/Bridge.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::Bridge::BridgeOpening" : {
          "file" : "lib/OpenGbg/Service/Bridge/BridgeOpening.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::Bridge::BridgeOpenings" : {
          "file" : "lib/OpenGbg/Service/Bridge/BridgeOpenings.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::Bridge::GetIsCurrentlyOpen" : {
          "file" : "lib/OpenGbg/Service/Bridge/GetIsCurrentlyOpen.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::Bridge::GetOpenedStatus" : {
          "file" : "lib/OpenGbg/Service/Bridge/GetOpenedStatus.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::Getter" : {
          "file" : "lib/OpenGbg/Service/Getter.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::StyrOchStall" : {
          "file" : "lib/OpenGbg/Service/StyrOchStall.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::StyrOchStall::GetBikeStation" : {
          "file" : "lib/OpenGbg/Service/StyrOchStall/GetBikeStation.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::StyrOchStall::GetBikeStations" : {
          "file" : "lib/OpenGbg/Service/StyrOchStall/GetBikeStations.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::StyrOchStall::Station" : {
          "file" : "lib/OpenGbg/Service/StyrOchStall/Station.pm",
-         "version" : "0.1302"
-      },
-      "OpenGbg::Service::StyrOchStall::Stations" : {
-         "file" : "lib/OpenGbg/Service/StyrOchStall/Stations.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::TrafficCamera" : {
          "file" : "lib/OpenGbg/Service/TrafficCamera.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::TrafficCamera::CameraDevice" : {
          "file" : "lib/OpenGbg/Service/TrafficCamera/CameraDevice.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::TrafficCamera::CameraDevices" : {
          "file" : "lib/OpenGbg/Service/TrafficCamera/CameraDevices.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::TrafficCamera::GetCameraImage" : {
          "file" : "lib/OpenGbg/Service/TrafficCamera/GetCameraImage.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Service::TrafficCamera::GetTrafficCameras" : {
          "file" : "lib/OpenGbg/Service/TrafficCamera/GetTrafficCameras.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       },
       "OpenGbg::Standard::Imports" : {
          "file" : "lib/OpenGbg/Standard/Imports.pm",
-         "version" : "0.1302"
-      },
-      "OpenGbg::Types" : {
-         "file" : "lib/OpenGbg/Types.pm",
-         "version" : "0.1302"
+         "version" : "0.1303"
       }
    },
    "release_status" : "stable",
@@ -260,6 +245,6 @@
          "web" : "https://github.com/Csson/p5-OpenGbg"
       }
    },
-   "version" : "0.1302"
+   "version" : "0.1303"
 }
 
