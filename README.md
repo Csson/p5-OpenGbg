@@ -2,7 +2,7 @@
 
 OpenGbg - An interface to the Open Data API of Gothenburg
 
-![Requires Perl 5.10.1+](https://img.shields.io/badge/perl-5.10.1+-brightgreen.svg) [![Travis status](https://api.travis-ci.org/Csson/p5-OpenGbg.svg?branch=master)](https://travis-ci.org/Csson/p5-OpenGbg) ![coverage 79.9%](https://img.shields.io/badge/coverage-79.9%-orange.svg)
+![Requires Perl 5.10.1+](https://img.shields.io/badge/perl-5.10.1+-brightgreen.svg) [![Travis status](https://api.travis-ci.org/Csson/p5-OpenGbg.svg?branch=master)](https://travis-ci.org/Csson/p5-OpenGbg) ![coverage 78.1%](https://img.shields.io/badge/coverage-78.1%-orange.svg)
 
 # VERSION
 
