@@ -1,98 +1,10 @@
-use OpenGbg::Standard::Imports;
+use 5.10.1;
+use strict;
+use warnings;
 
 # VERSION
-# PODCLASSNAME
 
-class OpenGbg::Handler
-using Moose {
-
-    use Config::Any;
-    use File::HomeDir;
-    use HTTP::Tiny;
-    use Path::Tiny;
-    use OpenGbg::Service::AirQuality;
-    use OpenGbg::Service::Bridge;
-    use OpenGbg::Service::StyrOchStall;
-    use OpenGbg::Service::TrafficCamera;
-
-    has config_file => (
-        is => 'ro',
-        isa => AbsFile,
-        lazy => 1,
-        builder => 1,
-        init_arg => undef,
-    );
-    has config => (
-        is => 'ro',
-        isa => HashRef,
-        lazy => 1,
-        builder => 1,
-        init_arg => undef,
-    );
-    has key => (
-        is => 'ro',
-        isa => Str,
-        lazy => 1,
-        builder => 1,
-    );
-    has ua => (
-        is => 'ro',
-        builder => 1,
-        handles => ['get'],
-    );
-    has base => (
-        is => 'ro',
-        isa => Str,
-        default => 'http://data.goteborg.se/',
-    );
-
-    my @services = qw/
-        air_quality
-        bridge
-        styr_och_stall
-        traffic_camera
-    /;
-    foreach my $service (@services) {
-        has $service => (
-            is => 'ro',
-            lazy => 1,
-            builder => 1,
-        );
-    }
-
-    method _build_config_file {
-        my $home = File::HomeDir->my_home;
-        my $conf_file = path($home)->child('.opengbg.ini');
-    }
-    method _build_config {
-        my $cfg = Config::Any->load_files({
-            use_ext => 1,
-            files => [ $self->config_file ],
-        });
-        my $entry = shift @{ $cfg };
-        my($filename, $config) = %{ $entry };
-        return $config;
-    }
-    method _build_key {
-        return $self->config->{'API'}{'key'};
-    }
-    method _build_ua {
-        return HTTP::Tiny->new(agent => 'OpenGbg-Browser');
-    }
-
-    method _build_air_quality {
-        return OpenGbg::Service::AirQuality->new(handler => $self);
-    }
-    method _build_bridge {
-        return OpenGbg::Service::Bridge->new(handler => $self);
-    }
-    method _build_styr_och_stall {
-        return OpenGbg::Service::StyrOchStall->new(handler => $self);
-    }
-    method _build_traffic_camera {
-        return OpenGbg::Service::TrafficCamera->new(handler => $self);
-    }
-}
+package OpenGbg::Handler;
 
 1;
 

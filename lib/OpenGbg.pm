@@ -1,17 +1,108 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
+
 package OpenGbg;
 
 # VERSION
 # ABSTRACT: An interface to the Open Data API of Gothenburg
 
-use OpenGbg::Handler;
+use OpenGbg::Elk;
 
-sub new {
-    shift;
-    return OpenGbg::Handler->new(@_);
+use Config::Any;
+use File::HomeDir;
+use HTTP::Tiny;
+use Path::Tiny;
+use Types::Standard qw/HashRef Str/;
+use Types::Path::Tiny qw/AbsFile/;
+use namespace::autoclean;
+
+use OpenGbg::Service::AirQuality;
+use OpenGbg::Service::Bridge;
+use OpenGbg::Service::StyrOchStall;
+use OpenGbg::Service::TrafficCamera;
+
+has config_file => (
+    is => 'ro',
+    isa => AbsFile,
+    lazy => 1,
+    builder => 1,
+    init_arg => undef,
+);
+has config => (
+    is => 'ro',
+    isa => HashRef,
+    lazy => 1,
+    builder => 1,
+    init_arg => undef,
+);
+has key => (
+    is => 'ro',
+    isa => Str,
+    lazy => 1,
+    builder => 1,
+);
+has ua => (
+    is => 'ro',
+    builder => 1,
+    handles => ['get'],
+);
+has base => (
+    is => 'ro',
+    isa => Str,
+    default => 'http://data.goteborg.se/',
+);
+
+my @services = qw/
+    air_quality
+    bridge
+    styr_och_stall
+    traffic_camera
+/;
+foreach my $service (@services) {
+    has $service => (
+        is => 'ro',
+        lazy => 1,
+        builder => 1,
+    );
 }
+
+sub _build_config_file {
+    my $home = File::HomeDir->my_home;
+    my $conf_file = path($home)->child('.opengbg.ini');
+}
+sub _build_config {
+    my $self = shift;
+
+    my $cfg = Config::Any->load_files({
+        use_ext => 1,
+        files => [ $self->config_file ],
+    });
+    my $entry = shift @{ $cfg };
+    my($filename, $config) = %{ $entry };
+    return $config;
+}
+sub _build_key {
+    return shift->config->{'API'}{'key'};
+}
+sub _build_ua {
+    return HTTP::Tiny->new(agent => 'OpenGbg-Browser');
+}
+
+sub _build_air_quality {
+    return OpenGbg::Service::AirQuality->new(handler => shift);
+}
+sub _build_bridge {
+    return OpenGbg::Service::Bridge->new(handler => shift);
+}
+sub _build_styr_och_stall {
+    return OpenGbg::Service::StyrOchStall->new(handler => shift);
+}
+sub _build_traffic_camera {
+    return OpenGbg::Service::TrafficCamera->new(handler => shift);
+}
+
+__PACKAGE__->meta->make_immutable;
 
 1;
 

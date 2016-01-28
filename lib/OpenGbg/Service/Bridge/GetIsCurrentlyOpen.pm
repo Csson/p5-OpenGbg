@@ -1,4 +1,4 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
 
@@ -7,11 +7,10 @@ package OpenGbg::Service::Bridge::GetIsCurrentlyOpen;
 # VERSION
 # ABSTRACT: Is the bridge currently open?
 
-use OpenGbg::Types -types;
 use XML::Rabbit::Root;
 use DateTime::Format::HTTP;
 use MooseX::AttributeShortcuts;
-use Kavorka;
+use Types::Standard qw/Str Bool/;
 
 has xml => (
     is => 'ro',
@@ -30,10 +29,9 @@ has is_open => (
     builder => 1,
 );
 
-method _build_is_open {
-    return $self->_is_open eq 'true';
+sub _build_is_open {
+    return shift->_is_open eq 'true';
 }
-
 
 finalize_class();
 

@@ -1,4 +1,4 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
 
@@ -7,11 +7,9 @@ package OpenGbg::Service::AirQuality::GetMeasurements;
 # VERSION
 # ABSTRACT: Get a collection of measurements
 
-use OpenGbg::Types -types;
 use XML::Rabbit::Root;
-use DateTime::Format::HTTP;
 use MooseX::AttributeShortcuts;
-use Kavorka;
+use Types::Standard qw/Str/;
 
 has xml => (
     is => 'ro',

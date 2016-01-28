@@ -1,4 +1,4 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
 
@@ -9,7 +9,6 @@ package OpenGbg::Service::StyrOchStall::Station;
 
 use XML::Rabbit;
 use syntax 'qs';
-use Kavorka;
 
 has_xpath_value id => './x:Id';
 has_xpath_value original_label => './x:Label';
@@ -20,29 +19,43 @@ has_xpath_value _free_bikes => './x:FreeBikes';
 has_xpath_value _free_stands => './x:FreeStands';
 has_xpath_value state => './x:State';
 
-method label {
+sub label {
+    my $self = shift;
+
     my $label = $self->original_label;
     $label =~ s{([\w']+)}{\u\L$1}g;
     return $label;
 }
 
-method capacity {
+sub capacity {
+    my $self = shift;
+
     return length $self->_capacity ? $self->_capacity : 0;
 }
-method free_bikes {
+sub free_bikes {
+    my $self = shift;
+
     return length $self->_free_bikes ? $self->_free_bikes : 0;
 }
-method free_stands {
+sub free_stands {
+    my $self = shift;
+
     return length $self->_free_stands ? $self->_free_stands : 0;
 }
-method full {
+sub full {
+    my $self = shift;
+
     return $self->free_stands == 0;
 }
-method empty {
+sub empty {
+    my $self = shift;
+
     return $self->free_bikes == 0;
 }
 
-method to_text {
+sub to_text {
+    my $self = shift;
+
     return sprintf qs{
                 Id:             %s
                 Label:          %s

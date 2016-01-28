@@ -1,43 +1,53 @@
-use OpenGbg::Standard::Imports;
+use 5.10.1;
+use strict;
+use warnings;
+
+package OpenGbg::Service::AirQuality;
 
 # VERSION
-# PODCLASSNAME
 # ABSTRACT: Entry point to the Air Quality service
 
-class OpenGbg::Service::AirQuality using Moose {
+use OpenGbg::Elk;
+use namespace::autoclean;
+use Types::Standard qw/Str/;
 
-    use OpenGbg::Service::AirQuality::GetLatestMeasurement;
-    use OpenGbg::Service::AirQuality::GetMeasurements;
+use OpenGbg::Service::AirQuality::GetLatestMeasurement;
+use OpenGbg::Service::AirQuality::GetMeasurements;
 
-    with 'OpenGbg::Service::Getter';
+with 'OpenGbg::Service::Getter';
 
-    has handler => (
-        is => 'ro',
-        required => 1,
-    );
-    has service_base => (
-        is => 'rw',
-        isa => Str,
-        default => 'AirQualityService/v1.0/',
-    );
+has handler => (
+    is => 'ro',
+    required => 1,
+);
+has service_base => (
+    is => 'rw',
+    isa => Str,
+    default => 'AirQualityService/v1.0/',
+);
 
-    method get_latest_measurement {
-        my $url = 'LatestMeasurement/%s?';
-        my $response = $self->getter($url, 'latest_measurement');
+sub get_latest_measurement {
+    my $self = shift;
 
-        return OpenGbg::Service::AirQuality::GetLatestMeasurement->new(xml => $response);
-    }
-    method get_measurements(:$start, :$end) {
-        my %dates = (startdate => $start, enddate => $end);
-        my $dates = join '&' => map { "$_=$dates{ $_ }"} keys %dates;
+    my $url = 'LatestMeasurement/%s?';
+    my $response = $self->getter($url, 'latest_measurement');
 
-        my $url = "Measurements/%s?$dates&";
-        my $response = $self->getter($url, 'measurements');
-
-        return OpenGbg::Service::AirQuality::GetMeasurements->new(xml => $response);
-    }
-
+    return OpenGbg::Service::AirQuality::GetLatestMeasurement->new(xml => $response);
 }
+sub get_measurements {
+    my $self = shift;
+    my %args = @_;
+
+    my %dates = (startdate => $args{'start'}, enddate => $args{'end'});
+    my $dates = join '&' => map { "$_=$dates{ $_ }"} keys %dates;
+
+    my $url = "Measurements/%s?$dates&";
+    my $response = $self->getter($url, 'measurements');
+
+    return OpenGbg::Service::AirQuality::GetMeasurements->new(xml => $response);
+}
+
+__PACKAGE__->meta->make_immutable;
 
 1;
 

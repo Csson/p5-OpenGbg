@@ -1,40 +1,51 @@
-use OpenGbg::Standard::Imports;
+use 5.10.1;
+use strict;
+use warnings;
+
+package OpenGbg::Service::Bridge;
 
 # VERSION
-# PODCLASSNAME
 # ABSTRACT: Entry point to the Bridge service
 
-class OpenGbg::Service::Bridge using Moose {
+use OpenGbg::Elk;
+use namespace::autoclean;
+use Types::Standard qw/Str/;
 
-    use OpenGbg::Service::Bridge::GetIsCurrentlyOpen;
-    use OpenGbg::Service::Bridge::GetOpenedStatus;
+use OpenGbg::Service::Bridge::GetIsCurrentlyOpen;
+use OpenGbg::Service::Bridge::GetOpenedStatus;
 
-    with 'OpenGbg::Service::Getter';
+with 'OpenGbg::Service::Getter';
 
-    has handler => (
-        is => 'ro',
-        required => 1,
-    );
-    has service_base => (
-        is => 'rw',
-        isa => Str,
-        default => 'BridgeService/v1.0/',
-    );
+has handler => (
+    is => 'ro',
+    required => 1,
+);
+has service_base => (
+    is => 'rw',
+    isa => Str,
+    default => 'BridgeService/v1.0/',
+);
 
-    method get_is_currently_open {
-        my $url = 'GetGABOpenedStatus/%s?';
-        my $response = $self->getter($url, 'get_is_currently_open');
+sub get_is_currently_open {
+    my $self = shift;
 
-        return OpenGbg::Service::Bridge::GetIsCurrentlyOpen->new(xml => $response);
-    }
-    method get_opened_status($start, $end) {
-        my $url = "GetGABOpenedStatus/%s/$start/$end?";
-        my $response = $self->getter($url, 'get_opened_status');
+    my $url = 'GetGABOpenedStatus/%s?';
+    my $response = $self->getter($url, 'get_is_currently_open');
 
-        return OpenGbg::Service::Bridge::GetOpenedStatus->new(xml => $response);
-    }
-
+    return OpenGbg::Service::Bridge::GetIsCurrentlyOpen->new(xml => $response);
 }
+sub get_opened_status {
+    my $self = shift;
+    my $start = shift;
+    my $end = shift;
+
+    my $url = "GetGABOpenedStatus/%s/$start/$end?";
+    my $response = $self->getter($url, 'get_opened_status');
+
+    return OpenGbg::Service::Bridge::GetOpenedStatus->new(xml => $response);
+}
+
+__PACKAGE__->meta->make_immutable;
 
 1;
 

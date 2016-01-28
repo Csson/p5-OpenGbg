@@ -1,4 +1,4 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
 
@@ -8,7 +8,6 @@ package OpenGbg::Service::StyrOchStall::Stations;
 # ABSTRACT: A list of bike stations
 
 use XML::Rabbit;
-use Kavorka;
 
 has_xpath_object_list _stations => './x:Details' => 'OpenGbg::Service::StyrOchStall::Station',
                                    handles => {
@@ -21,7 +20,10 @@ has_xpath_object_list _stations => './x:Details' => 'OpenGbg::Service::StyrOchSt
                                         sort => 'sort',
                                    };
 
-method get_by_id($id) {
+sub get_by_id {
+    my $self = shift;
+    my $id = shift;
+
     return $self->find(sub { $_ == $id });
 }
 

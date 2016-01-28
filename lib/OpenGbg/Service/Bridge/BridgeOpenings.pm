@@ -1,4 +1,4 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
 
@@ -8,18 +8,17 @@ package OpenGbg::Service::Bridge::BridgeOpenings;
 # ABSTRACT: A list of bridge openings/closings
 
 use XML::Rabbit;
-use Kavorka;
 
 has_xpath_object_list _bridge_openings => './x:BridgeOpen' => 'OpenGbg::Service::Bridge::BridgeOpening',
-                                         handles => {
-                                              all => 'elements',
-                                              count => 'count',
-                                              filter => 'grep',
-                                              find => 'first',
-                                              get_by_index => 'get',
-                                              map => 'map',
-                                              sort => 'sort',
-                                         };
+                                        handles => {
+                                            all => 'elements',
+                                            count => 'count',
+                                            filter => 'grep',
+                                            find => 'first',
+                                            get_by_index => 'get',
+                                            map => 'map',
+                                            sort => 'sort',
+                                        };
 
 finalize_class();
 

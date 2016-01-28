@@ -1,4 +1,4 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
 
@@ -7,10 +7,9 @@ package OpenGbg::Service::TrafficCamera::GetTrafficCameras;
 # VERSION
 # ABSTRACT: Get a list of traffic cameras
 
-use OpenGbg::Types -types;
 use XML::Rabbit::Root;
-use MooseX::AttributeShortcuts;
-use Kavorka;
+use Types::Standard qw/Str/;
+
 
 has xml => (
     is => 'ro',

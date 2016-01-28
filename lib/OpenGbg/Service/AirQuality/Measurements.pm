@@ -1,4 +1,4 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
 
@@ -8,7 +8,6 @@ package OpenGbg::Service::AirQuality::Measurements;
 # ABSTRACT: A list of air quality measurements
 
 use XML::Rabbit;
-use Kavorka;
 
 has_xpath_object_list _measurements => './x:Measurement' => 'OpenGbg::Service::AirQuality::Measurement',
                                    handles => {

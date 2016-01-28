@@ -1,4 +1,4 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
 
@@ -7,11 +7,11 @@ package OpenGbg::Service::StyrOchStall::GetBikeStations;
 # VERSION
 # ABSTRACT: Get data on all bike stations
 
-use OpenGbg::Types -types;
 use XML::Rabbit::Root;
 use DateTime::Format::HTTP;
 use MooseX::AttributeShortcuts;
-use Kavorka;
+use Types::Standard qw/Str/;
+use Types::DateTime qw/DateTime/;
 
 has xml => (
     is => 'ro',
@@ -32,8 +32,8 @@ has timestamp => (
     builder => 1,
 );
 
-method _build_timestamp {
-    return DateTime::Format::HTTP->parse_datetime($self->_timestamp);
+sub _build_timestamp {
+    return DateTime::Format::HTTP->parse_datetime(shift->_timestamp);
 }
 
 finalize_class();
