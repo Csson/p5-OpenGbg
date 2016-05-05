@@ -8,6 +8,7 @@ OpenGbg - An interface to the Open Data API of Gothenburg
     <a href="https://travis-ci.org/Csson/p5-OpenGbg"><img src="https://api.travis-ci.org/Csson/p5-OpenGbg.svg?branch=master" alt="Travis status" /></a>
     <a href="http://cpants.cpanauthors.org/dist/OpenGbg-0.1401"><img src="https://badgedepot.code301.com/badge/kwalitee/OpenGbg/0.1401" alt="Distribution kwalitee" /></a>
     <a href="http://matrix.cpantesters.org/?dist=OpenGbg%200.1401"><img src="https://badgedepot.code301.com/badge/cpantesters/OpenGbg/0.1401" alt="CPAN Testers result" /></a>
+    <img src="https://img.shields.io/badge/coverage-78.1%-orange.svg" alt="coverage 78.1%" />
     </p>
 </div>
 

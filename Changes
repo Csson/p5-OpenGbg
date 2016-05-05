@@ -2,12 +2,15 @@ Revision history for OpenGbg
 
 {{$NEXT}}
  [API Changes]
+  - Deprecated 'measurement' in OpenGbg::Service::AirQuality::GetLatestMeasurement. All methods and attributes in
+    OpenGbg::Service::AirQuality::Measurement are now available directly on ::GetLatestMeasurement.
 
  [Bug Fixes]
 
  [Documentation]
 
  [Enhancements]
+  - Added convenience method 'is_open' to OpenGbg::Service::Bridge.
 
  [New Features]
 
