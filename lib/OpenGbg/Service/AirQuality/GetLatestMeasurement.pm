@@ -9,7 +9,7 @@ package OpenGbg::Service::AirQuality::GetLatestMeasurement;
 our $VERSION = '0.1401';
 
 use XML::Rabbit::Root;
-use Types::Standard qw/Str/;
+use Types::Standard qw/Bool Str/;
 
 has xml => (
     is => 'ro',
@@ -19,8 +19,82 @@ has xml => (
 
 add_xpath_namespace 'x' => 'TK.DevServer.Services.AirQualityService';
 
-has_xpath_object measurement => '/x:Measurement' => 'OpenGbg::Service::AirQuality::Measurement',
-    handles => [qw//];
+has measurement_called => (
+    is => 'rw',
+    isa => Bool,
+    default => 0,
+);
+
+sub measurement {
+    my $self = shift;
+    warn q{Deprecated attribute 'measurement' called} if !$self->measurement_called;
+    $self->measurement_called(1);
+    return $self->_measurement;
+}
+
+has_xpath_object _measurement => '/x:Measurement' => 'OpenGbg::Service::AirQuality::Measurement',
+    handles => [qw/
+        starttime
+        endtime
+
+        temperature
+        temperature_unit
+        humidity
+        humidity_unit
+        solar_insolation
+        solar_insolation_unit
+        air_pressure
+        air_pressure_unit
+        wind_speed
+        wind_speed_unit
+        wind_direction
+        wind_direction_unit
+        rainfall
+        rainfall_unit
+
+        total_index
+
+        no2
+        no2_unit
+        no2_index
+
+        so2
+        so2_unit
+        so2_index
+
+        o3
+        o3_unit
+        o3_index
+
+        pm10
+        pm10_unit
+        pm10_index
+
+        co
+        co_unit
+        co_index
+
+        nox
+        nox_unit
+        nox_index
+
+        pm2_5
+        pm2_5_unit
+        pm2_5_index
+
+        total_levels
+        no2_levels
+        so2_levels
+        o3_levels
+        co_levels
+        pm10_levels
+        nox_levels
+        pm2_5_levels
+
+        to_text
+        weather_to_text
+        air_quality_to_text
+    /];
 
 finalize_class();
 
@@ -35,14 +109,12 @@ __END__
 =head1 SYNOPSIS
 
     my $service = OpenGbg->new->air_quality;
-    my $response = $service->get_latest_measurement;
+    my $measurement = $service->get_latest_measurement;
 
-    print $response->measurement->to_text;
+    print $measurement->temperature;
 
 =head1 METHODS
 
-=head2 measurement
-
-Returns the L<OpenGbg::Service::AirQuality::Measurement> object given in the response  (usually less than an hour old).
+See L<OpenGbg::Service::AirQuality::Measurement> for available methods and attributes.
 
 =cut

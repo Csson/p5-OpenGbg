@@ -15,6 +15,6 @@ if(!$has_conf_file) {
 
 my $open = OpenGbg->new;
 
-is $open->air_quality->get_latest_measurement->measurement->temperature_unit, 'degrees C', 'Got temperature unit';
+is $open->air_quality->get_latest_measurement->temperature_unit, 'degrees C', 'Got temperature unit';
 
 done_testing;

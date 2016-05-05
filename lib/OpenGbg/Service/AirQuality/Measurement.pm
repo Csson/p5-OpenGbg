@@ -15,6 +15,8 @@ use DateTime::Format::HTTP;
 use MooseX::AttributeShortcuts;
 use Types::DateTime qw/DateTime/;
 
+# any attributes/methods added here should also be 'handled' in GetLatestMeasurement.
+
 has_xpath_value _starttime => './x:StartTime';
 has_xpath_value _endtime => './x:StopTime';
 
