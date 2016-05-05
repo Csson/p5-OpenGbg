@@ -23,9 +23,12 @@ sub main {
     my $response;
 
     my $start = DateTime->from_epoch(epoch => time - 86400 * 14);
-    $response = $open->bridge->get_opened_status($start->ymd, DateTime->now->ymd);
+    my $bridge = $open->bridge;
+    $response = $bridge->get_opened_status($start->ymd, DateTime->now->ymd);
 
     is $response->bridge_openings->count >= 2, 1, 'We have bridge statuses';
+
+    is $bridge->is_open || !$bridge->is_open, 1, 'The bridge is either open or closed (called from ::Bridge)';
 
 }
 

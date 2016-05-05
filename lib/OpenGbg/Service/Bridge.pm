@@ -46,6 +46,10 @@ sub get_opened_status {
     return OpenGbg::Service::Bridge::GetOpenedStatus->new(xml => $response);
 }
 
+sub is_open {
+    return shift->get_is_currently_open->is_open;
+}
+
 __PACKAGE__->meta->make_immutable;
 
 1;
