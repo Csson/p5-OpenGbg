@@ -30,6 +30,7 @@ plugins:
  - +config: Author::CSSON
 
  - +extend_plugin: TravisYML
+   sudo: 1
    post_before_install:
     - sudo apt-get update -qq && sudo apt-get install -y libxml2-dev
    pre_install:
