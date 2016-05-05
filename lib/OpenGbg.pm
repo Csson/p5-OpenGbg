@@ -6,7 +6,7 @@ package OpenGbg;
 
 # ABSTRACT: An interface to the Open Data API of Gothenburg
 # AUTHORITY
-our $VERSION = '0.1401';
+our $VERSION = '0.1402';
 
 use OpenGbg::Elk;
 

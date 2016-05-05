@@ -6,7 +6,7 @@ package OpenGbg::Service::AirQuality::GetLatestMeasurement;
 
 # ABSTRACT: Get the latest air quality measurement
 # AUTHORITY
-our $VERSION = '0.1401';
+our $VERSION = '0.1402';
 
 use XML::Rabbit::Root;
 use Types::Standard qw/Bool Str/;

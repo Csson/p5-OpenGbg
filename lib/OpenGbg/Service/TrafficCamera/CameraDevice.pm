@@ -6,7 +6,7 @@ package OpenGbg::Service::TrafficCamera::CameraDevice;
 
 # ABSTRACT: Data about a traffic camera
 # AUTHORITY
-our $VERSION = '0.1401';
+our $VERSION = '0.1402';
 
 use XML::Rabbit;
 use syntax 'qs';

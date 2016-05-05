@@ -5,7 +5,7 @@ use warnings;
 package OpenGbg::Exceptions;
 
 # AUTHORITY
-our $VERSION = '0.1401';
+our $VERSION = '0.1402';
 
 use Throwable::SugarFactory;
 
