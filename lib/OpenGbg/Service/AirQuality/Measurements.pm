@@ -1,11 +1,12 @@
-use 5.10.1;
+use 5.10.0;
 use strict;
 use warnings;
 
 package OpenGbg::Service::AirQuality::Measurements;
 
-# VERSION
 # ABSTRACT: A list of air quality measurements
+# AUTHORITY
+our $VERSION = '0.1401';
 
 use XML::Rabbit;
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-use 5.10.1;
+use 5.10.0;
 use List::AllUtils 'sum';
 use OpenGbg;
 use Try::Tiny;

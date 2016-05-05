@@ -2,11 +2,18 @@
 
 OpenGbg - An interface to the Open Data API of Gothenburg
 
-![Requires Perl 5.10.1+](https://img.shields.io/badge/perl-5.10.1+-brightgreen.svg) [![Travis status](https://api.travis-ci.org/Csson/p5-OpenGbg.svg?branch=master)](https://travis-ci.org/Csson/p5-OpenGbg) ![coverage 78.1%](https://img.shields.io/badge/coverage-78.1%-orange.svg)
+<div>
+    <p>
+    <img src="https://img.shields.io/badge/perl-5.10+-blue.svg" alt="Requires Perl 5.10+" />
+    <a href="https://travis-ci.org/Csson/p5-OpenGbg"><img src="https://api.travis-ci.org/Csson/p5-OpenGbg.svg?branch=master" alt="Travis status" /></a>
+    <a href="http://cpants.cpanauthors.org/dist/OpenGbg-0.1401"><img src="https://badgedepot.code301.com/badge/kwalitee/OpenGbg/0.1401" alt="Distribution kwalitee" /></a>
+    <a href="http://matrix.cpantesters.org/?dist=OpenGbg%200.1401"><img src="https://badgedepot.code301.com/badge/cpantesters/OpenGbg/0.1401" alt="CPAN Testers result" /></a>
+    </p>
+</div>
 
 # VERSION
 
-Version 0.1400, released 2016-01-28.
+Version 0.1401, released 2016-05-05.
 
 # SYNOPSIS
 

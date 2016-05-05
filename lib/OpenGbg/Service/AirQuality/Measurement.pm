@@ -1,11 +1,12 @@
-use 5.10.1;
+use 5.10.0;
 use strict;
 use warnings;
 
 package OpenGbg::Service::AirQuality::Measurement;
 
-# VERSION
 # ABSTRACT: An air quality measurement
+# AUTHORITY
+our $VERSION = '0.1401';
 
 use utf8;
 use syntax 'qs';

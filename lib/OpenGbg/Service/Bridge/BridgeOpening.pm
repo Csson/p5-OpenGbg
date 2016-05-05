@@ -1,11 +1,12 @@
-use 5.10.1;
+use 5.10.0;
 use strict;
 use warnings;
 
 package OpenGbg::Service::Bridge::BridgeOpening;
 
-# VERSION
 # ABSTRACT: A change in status for Göta Älvbron
+# AUTHORITY
+our $VERSION = '0.1401';
 
 use XML::Rabbit;
 use DateTime::Format::HTTP;

@@ -1,11 +1,12 @@
-use 5.10.1;
+use 5.10.0;
 use strict;
 use warnings;
 
 package OpenGbg::Service::StyrOchStall::Station;
 
-# VERSION
 # ABSTRACT: Data on a bike station
+# AUTHORITY
+our $VERSION = '0.1401';
 
 use XML::Rabbit;
 use syntax 'qs';

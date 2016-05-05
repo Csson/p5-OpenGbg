@@ -1,10 +1,11 @@
-use 5.10.1;
+use 5.10.0;
 use strict;
 use warnings;
 
 package OpenGbg::Elk;
 
-# VERSION
+# AUTHORITY
+our $VERSION = '0.1401';
 
 use Moose();
 use MooseX::AttributeShortcuts();

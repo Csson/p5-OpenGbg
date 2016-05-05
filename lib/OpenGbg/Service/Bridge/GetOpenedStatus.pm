@@ -1,11 +1,12 @@
-use 5.10.1;
+use 5.10.0;
 use strict;
 use warnings;
 
 package OpenGbg::Service::Bridge::GetOpenedStatus;
 
-# VERSION
 # ABSTRACT: A list of bridge openings
+# AUTHORITY
+our $VERSION = '0.1401';
 
 use XML::Rabbit::Root;
 use MooseX::AttributeShortcuts;

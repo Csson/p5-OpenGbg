@@ -1,11 +1,12 @@
-use 5.10.1;
+use 5.10.0;
 use strict;
 use warnings;
 
 package OpenGbg;
 
-# VERSION
 # ABSTRACT: An interface to the Open Data API of Gothenburg
+# AUTHORITY
+our $VERSION = '0.1401';
 
 use OpenGbg::Elk;
 

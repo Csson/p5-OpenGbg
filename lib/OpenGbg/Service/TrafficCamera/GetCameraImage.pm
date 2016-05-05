@@ -1,11 +1,12 @@
-use 5.10.1;
+use 5.10.0;
 use strict;
 use warnings;
 
 package OpenGbg::Service::TrafficCamera::GetCameraImage;
 
-# VERSION
 # ABSTRACT: Get the current image from a traffic camera
+# AUTHORITY
+our $VERSION = '0.1401';
 
 use OpenGbg::Elk;
 use namespace::autoclean;

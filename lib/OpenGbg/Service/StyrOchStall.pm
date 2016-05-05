@@ -1,11 +1,12 @@
-use 5.10.1;
+use 5.10.0;
 use strict;
 use warnings;
 
 package OpenGbg::Service::StyrOchStall;
 
-# VERSION
 # ABSTRACT: Entry point to the StyrOchStall bike rental service
+# AUTHORITY
+our $VERSION = '0.1401';
 
 use OpenGbg::Elk;
 with 'OpenGbg::Service::Getter';

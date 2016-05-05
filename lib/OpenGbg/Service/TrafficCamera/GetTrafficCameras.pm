@@ -1,11 +1,12 @@
-use 5.10.1;
+use 5.10.0;
 use strict;
 use warnings;
 
 package OpenGbg::Service::TrafficCamera::GetTrafficCameras;
 
-# VERSION
 # ABSTRACT: Get a list of traffic cameras
+# AUTHORITY
+our $VERSION = '0.1401';
 
 use XML::Rabbit::Root;
 use Types::Standard qw/Str/;

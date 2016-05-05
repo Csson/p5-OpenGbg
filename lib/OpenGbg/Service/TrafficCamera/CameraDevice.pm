@@ -1,11 +1,12 @@
-use 5.10.1;
+use 5.10.0;
 use strict;
 use warnings;
 
 package OpenGbg::Service::TrafficCamera::CameraDevice;
 
-# VERSION
 # ABSTRACT: Data about a traffic camera
+# AUTHORITY
+our $VERSION = '0.1401';
 
 use XML::Rabbit;
 use syntax 'qs';

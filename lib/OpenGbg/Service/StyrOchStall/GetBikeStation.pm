@@ -1,11 +1,12 @@
-use 5.10.1;
+use 5.10.0;
 use strict;
 use warnings;
 
 package OpenGbg::Service::StyrOchStall::GetBikeStation;
 
-# VERSION
 # ABSTRACT: Get data about a bike station
+# AUTHORITY
+our $VERSION = '0.1401';
 
 use XML::Rabbit::Root;
 use DateTime::Format::HTTP;

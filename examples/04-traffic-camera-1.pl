@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-use 5.10.1;
+use 5.10.0;
 use OpenGbg;
 use DateTime;
 use Try::Tiny;
