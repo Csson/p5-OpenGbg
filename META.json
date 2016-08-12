@@ -153,6 +153,10 @@
          "file" : "lib/OpenGbg.pm",
          "version" : "0.1402"
       },
+      "OpenGbg::DateTimeType" : {
+         "file" : "lib/OpenGbg/DateTimeType.pm",
+         "version" : "0.1402"
+      },
       "OpenGbg::Elk" : {
          "file" : "lib/OpenGbg/Elk.pm",
          "version" : "0.1402"
@@ -312,6 +316,7 @@
          {
             "class" : "Dist::Zilla::Plugin::RewriteVersion::Transitional",
             "config" : {
+               "Dist::Zilla::Plugin::PkgVersion" : {},
                "Dist::Zilla::Plugin::RewriteVersion" : {
                   "add_tarball_name" : 0,
                   "finders" : [
