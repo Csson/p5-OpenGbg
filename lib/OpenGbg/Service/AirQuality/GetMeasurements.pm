@@ -6,7 +6,7 @@ package OpenGbg::Service::AirQuality::GetMeasurements;
 
 # ABSTRACT: Get a collection of measurements
 # AUTHORITY
-our $VERSION = '0.1402';
+our $VERSION = '0.1403';
 
 use XML::Rabbit::Root;
 use MooseX::AttributeShortcuts;

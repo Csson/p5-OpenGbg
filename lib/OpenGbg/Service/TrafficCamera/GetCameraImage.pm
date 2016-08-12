@@ -6,7 +6,7 @@ package OpenGbg::Service::TrafficCamera::GetCameraImage;
 
 # ABSTRACT: Get the current image from a traffic camera
 # AUTHORITY
-our $VERSION = '0.1402';
+our $VERSION = '0.1403';
 
 use OpenGbg::Elk;
 use namespace::autoclean;

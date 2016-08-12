@@ -6,7 +6,7 @@ package OpenGbg::Service::Bridge;
 
 # ABSTRACT: Entry point to the Bridge service
 # AUTHORITY
-our $VERSION = '0.1402';
+our $VERSION = '0.1403';
 
 use OpenGbg::Elk;
 use namespace::autoclean;

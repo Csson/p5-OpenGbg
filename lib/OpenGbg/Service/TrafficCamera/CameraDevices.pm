@@ -6,7 +6,7 @@ package OpenGbg::Service::TrafficCamera::CameraDevices;
 
 # ABSTRACT: A list of traffic cameras
 # AUTHORITY
-our $VERSION = '0.1402';
+our $VERSION = '0.1403';
 
 use XML::Rabbit;
 

@@ -5,7 +5,7 @@ use warnings;
 package OpenGbg::Elk;
 
 # AUTHORITY
-our $VERSION = '0.1402';
+our $VERSION = '0.1403';
 
 use Moose();
 use MooseX::AttributeShortcuts();

@@ -6,7 +6,7 @@ package OpenGbg::Service::StyrOchStall::Station;
 
 # ABSTRACT: Data on a bike station
 # AUTHORITY
-our $VERSION = '0.1402';
+our $VERSION = '0.1403';
 
 use XML::Rabbit;
 use syntax 'qs';

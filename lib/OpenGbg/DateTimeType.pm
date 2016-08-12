@@ -1,5 +1,5 @@
 package OpenGbg::DateTimeType;
-
+our $VERSION = '0.1403';
 use 5.10.0;
 use strict;
 use warnings;

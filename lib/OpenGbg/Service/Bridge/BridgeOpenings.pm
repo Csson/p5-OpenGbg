@@ -6,7 +6,7 @@ package OpenGbg::Service::Bridge::BridgeOpenings;
 
 # ABSTRACT: A list of bridge openings/closings
 # AUTHORITY
-our $VERSION = '0.1402';
+our $VERSION = '0.1403';
 
 use XML::Rabbit;
 

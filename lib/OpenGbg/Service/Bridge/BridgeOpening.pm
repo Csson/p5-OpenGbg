@@ -6,7 +6,7 @@ package OpenGbg::Service::Bridge::BridgeOpening;
 
 # ABSTRACT: A change in status for Göta Älvbron
 # AUTHORITY
-our $VERSION = '0.1402';
+our $VERSION = '0.1403';
 
 use XML::Rabbit;
 use DateTime::Format::HTTP;

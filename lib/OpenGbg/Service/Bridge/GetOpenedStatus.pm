@@ -6,7 +6,7 @@ package OpenGbg::Service::Bridge::GetOpenedStatus;
 
 # ABSTRACT: A list of bridge openings
 # AUTHORITY
-our $VERSION = '0.1402';
+our $VERSION = '0.1403';
 
 use XML::Rabbit::Root;
 use MooseX::AttributeShortcuts;
