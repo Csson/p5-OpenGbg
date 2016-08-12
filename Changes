@@ -12,6 +12,7 @@ Revision history for OpenGbg
  [New Features]
 
  [Other Changes]
+ - Error building Types::DateTime on travis. Bumping some prereqs to see if that helps.
 
  [Requirements]
 
