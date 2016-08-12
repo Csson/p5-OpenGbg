@@ -4,7 +4,6 @@ Revision history for OpenGbg
  [API Changes]
 
  [Bug Fixes]
- - Types::DateTime is (currently) broken with recent releases of DateTime::Locale, so add a custom DateTime type for now.
 
  [Documentation]
 
@@ -19,6 +18,19 @@ Revision history for OpenGbg
  [Stats & Dependency Changes]
 
  [Testing]
+
+0.1402 2016-08-12T22:07:56Z UTC
+ [Bug Fixes]
+ - Types::DateTime is (currently) broken with recent releases of
+   DateTime::Locale, so add a custom DateTime type for now.
+
+ [Stats & Dependency Changes]
+ - 25 files changed, 43 insertions(+), 31 deletions(-)
+ - (run req) ~ DateTime 1.05 --> 1.36
+ - (run req) ~ Moose 2.1400 --> 2.1803
+ - (run req) - Types::DateTime
+ - (dev req) + Dist::Zilla::Plugin::PromptIfStale (any)
+ - (dev sug) ~ Dist::Iller::Config::Author::CSSON 0.0309 --> 0.0312
 
 0.1401 2016-05-05T10:21:46Z UTC
  [API Changes]
