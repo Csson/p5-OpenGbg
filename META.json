@@ -127,7 +127,6 @@
             "Syntax::Feature::Qs" : "0.2004",
             "Throwable::SugarFactory" : "0.152700",
             "Type::Tiny" : "1.000005",
-            "Types::DateTime" : "0",
             "Types::Path::Tiny" : "0.005",
             "XML::Rabbit" : "v0.4.1",
             "namespace::autoclean" : "0.22",

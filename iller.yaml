@@ -20,7 +20,6 @@ prereqs:
      - Path::Tiny
      - Sub::Exporter
      - Type::Tiny
-     - Types::DateTime
      - Types::Path::Tiny
      - Throwable::SugarFactory: 0.152700
      - syntax
