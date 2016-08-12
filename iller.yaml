@@ -8,11 +8,11 @@ prereqs:
   runtime:
     requires:
      - perl: 5.010000
-     - Moose: 2.1400
+     - Moose
      - namespace::autoclean
      - XML::Rabbit: 0.4.1
      - Config::Any
-     - DateTime
+     - DateTime: 1.36
      - DateTime::Format::HTTP
      - File::HomeDir
      - HTTP::Tiny
