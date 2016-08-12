@@ -12,7 +12,7 @@ use XML::Rabbit::Root;
 use DateTime::Format::HTTP;
 use MooseX::AttributeShortcuts;
 use Types::Standard qw/Str/;
-use Types::DateTime qw/DateTime/;
+use OpenGbg::DateTimeType qw/DateTime/;
 
 has xml => (
     is => 'ro',
