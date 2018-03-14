@@ -126,7 +126,7 @@ __END__
 OpenGbg is a way to connect to and use the open data published by the city of L<Gothenburg|https://en.wikipedia.org/wiki/Gothenburg>.
 
 The open data homepage is located at L<http://data.goteborg.se/>. All official documentation is in Swedish, but the license agreement is published
-in English L<here|https://gbgdata.wordpress.com/goopen/>.
+in English L<here|http://www25.goteborg.se/psidata/DownloadHandler.ashx?id=7092f661-00c2-4b36-a613-98ca034e2e54&t=h>.
 
 To use the API you need to sign up for a free api key.
 
