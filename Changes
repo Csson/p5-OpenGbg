@@ -6,12 +6,16 @@ Revision history for OpenGbg
  [Bug Fixes]
 
  [Documentation]
+ - Updated link to the official license agreement.
 
  [Enhancements]
 
  [New Features]
+ - Added a couple of shortcut methods in the traffic camera service.
 
  [Other Changes]
+ - The OpenGbg::StyrOchStall namespace is deprecated, due to the removal/renaming of the underlying web service.
+ - Types::DateTime 0.002 fixed the previously mentioned issue, so the custom DateTime type class has been removed.
 
  [Requirements]
 
