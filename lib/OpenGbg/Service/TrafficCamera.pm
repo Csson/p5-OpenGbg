@@ -46,6 +46,13 @@ sub get_traffic_cameras {
     return OpenGbg::Service::TrafficCamera::GetTrafficCameras->new(xml => $response);
 }
 
+sub get_traffic_camera {
+    my $self = shift;
+    my $id = shift;
+
+    return $self->get_traffic_cameras->camera_devices->find(sub { $_->id == $id });
+}
+
 __PACKAGE__->meta->make_immutable;
 
 1;
@@ -77,6 +84,12 @@ See L<OpenGbg> for general information.
 Get information on the traffic cameras.
 
 Returns a L<GetTrafficCameras|OpenGbg::Service::TrafficCamera::GetTrafficCameras> object.
+
+
+=head2 get_traffic_camera($camera_id)
+
+Returns the L<CameraDevice|OpenGbg::Service::TrafficCamera::CameraDevice> object for the camera with id C<$id>. Undef if no camera has that id.
+
 
 
 =head2 get_camera_image($camera_id)
