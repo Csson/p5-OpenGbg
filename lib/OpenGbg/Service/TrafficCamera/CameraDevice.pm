@@ -22,6 +22,12 @@ has_xpath_value description => './x:Description';
 
 has_xpath_value model => './x:Model';
 
+sub get_latest_image {
+    my $self = shift;
+
+    return OpenGbg->new->traffic_camera->get_camera_image($self->id);
+}
+
 sub to_text {
     my $self = shift;
 
@@ -84,6 +90,10 @@ String. The brand and/or model of the traffic camera.
 
 
 =head1 METHODS
+
+=head2 get_latest_image
+
+Returns the latest available image from the camera.
 
 =head2 to_text()
 
