@@ -6,7 +6,7 @@ package OpenGbg::Service::AirQuality;
 
 # ABSTRACT: Entry point to the Air Quality service
 # AUTHORITY
-our $VERSION = '0.1403';
+our $VERSION = '0.1404';
 
 use OpenGbg::Elk;
 use namespace::autoclean;

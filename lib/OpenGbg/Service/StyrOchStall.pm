@@ -6,7 +6,7 @@ package OpenGbg::Service::StyrOchStall;
 
 # ABSTRACT: Entry point to the StyrOchStall bike rental service
 # AUTHORITY
-our $VERSION = '0.1403';
+our $VERSION = '0.1404';
 
 use OpenGbg::Elk;
 with 'OpenGbg::Service::Getter';

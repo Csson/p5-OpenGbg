@@ -6,7 +6,7 @@ package OpenGbg::Service::AirQuality::Measurements;
 
 # ABSTRACT: A list of air quality measurements
 # AUTHORITY
-our $VERSION = '0.1403';
+our $VERSION = '0.1404';
 
 use XML::Rabbit;
 
