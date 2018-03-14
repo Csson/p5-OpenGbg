@@ -68,6 +68,10 @@ __END__
 
     print $stations->get_by_index(0)->to_text;
 
+=head1 STATUS
+
+Deprecated. The underlying web service has changed. Nothing under the C<OpenGbg::StyrOchStall> namespace works, and will be replaced.
+
 =head1 DESCRIPTION
 
 Styr och ställ is Gothenburg's bike share program. This service has a couple of methods to get data about the bike stations.

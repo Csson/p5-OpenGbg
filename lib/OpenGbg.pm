@@ -138,7 +138,7 @@ Once you have your api key you can use it to authenticate in two different ways:
 
     my $opengbg = OpenGbg->new(key => 'secret-api-key');
 
-2. You can save it in a file named C<.opengbg.ini> in your homedir:
+2. You can save it in a file named C<.opengbg.ini> in your homedir (recommended):
 
     [API]
     key = secret-api-key
@@ -164,7 +164,7 @@ L<$gbg-E<gt>air_quality|OpenGbg::Service::AirQuality> - Data on air quality
 
 L<$gbg-E<gt>bridge|OpenGbg::Service::Bridge> - Data on the openness of Göta Älvbron
 
-L<$gbg-E<gt>styr_och_stall|OpenGbg::Service::StyrOchStall> - Data on rent-a-bike stations
+L<$gbg-E<gt>styr_och_stall|OpenGbg::Service::StyrOchStall> - Data on rent-a-bike stations (deprecated)
 
 L<$gbg-E<gt>traffic_camera|OpenGbg::Service::TrafficCamera> - Data on traffic cameras, and their images
 
