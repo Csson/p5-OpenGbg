@@ -11,7 +11,7 @@ our $VERSION = '0.1403';
 use OpenGbg::Elk;
 use namespace::autoclean;
 use Types::Standard qw/Int/;
-use OpenGbg::DateTimeType qw/DateTime/;
+use Types::DateTime qw/DateTime/;
 
 use DateTime;
 

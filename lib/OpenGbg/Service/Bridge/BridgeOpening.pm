@@ -11,7 +11,7 @@ our $VERSION = '0.1403';
 use XML::Rabbit;
 use DateTime::Format::HTTP;
 use MooseX::AttributeShortcuts;
-use OpenGbg::DateTimeType qw/DateTime/;
+use Types::DateTime qw/DateTime/;
 use Types::Standard qw/Bool/;
 
 has_xpath_value _timestamp => './x:TimeStamp';

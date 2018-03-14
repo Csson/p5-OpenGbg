@@ -13,7 +13,7 @@ use syntax 'qs';
 use XML::Rabbit;
 use DateTime::Format::HTTP;
 use MooseX::AttributeShortcuts;
-use OpenGbg::DateTimeType qw/DateTime/;
+use Types::DateTime qw/DateTime/;
 
 # any attributes/methods added here should also be 'handled' in GetLatestMeasurement.
 
