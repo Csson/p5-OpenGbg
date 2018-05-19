@@ -24,7 +24,7 @@ has handler => (
 has service_base => (
     is => 'rw',
     isa => Str,
-    default => 'TrafficCamera/v0.1/',
+    default => 'TrafficCamera/v0.2/',
 );
 
 sub get_camera_image {

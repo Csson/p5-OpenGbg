@@ -22,6 +22,10 @@ has_xpath_value description => './x:Description';
 
 has_xpath_value model => './x:Model';
 
+has_xpath_value lat => './x:Lat';
+
+has_xpath_value long => './x:Long';
+
 sub get_latest_image {
     my $self = shift;
 
@@ -37,12 +41,16 @@ sub to_text {
                 Storage duration (m):  %s
                 Capture interval (s):  %s
                 Model:                 %s
+                Lat:                   %s
+                Long:                  %s
             },
             $self->id,
             $self->description,
             $self->storage_duration_minutes,
             $self->capture_interval_seconds,
-            $self->model;
+            $self->model,
+            $self->lat,
+            $self->long;
 
 }
 
@@ -87,6 +95,14 @@ Integer. How long between captures.
 =head2 model
 
 String. The brand and/or model of the traffic camera.
+
+=head2 lat
+
+Decimal. The latitude location of the camera.
+
+=head2 long
+
+Decimal. The longitude location of the camera.
 
 
 =head1 METHODS
