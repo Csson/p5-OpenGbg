@@ -6,7 +6,7 @@ package OpenGbg::Service::AirQuality::Measurement;
 
 # ABSTRACT: An air quality measurement
 # AUTHORITY
-our $VERSION = '0.1404';
+our $VERSION = '0.1405';
 
 use utf8;
 use syntax 'qs';

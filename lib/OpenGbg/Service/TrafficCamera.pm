@@ -6,7 +6,7 @@ package OpenGbg::Service::TrafficCamera;
 
 # ABSTRACT: Entry point to the Traffic Camera service
 # AUTHORITY
-our $VERSION = '0.1404';
+our $VERSION = '0.1405';
 
 use OpenGbg::Elk;
 

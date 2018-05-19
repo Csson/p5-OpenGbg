@@ -6,7 +6,7 @@ package OpenGbg::Service::Bridge::GetIsCurrentlyOpen;
 
 # ABSTRACT: Is the bridge currently open?
 # AUTHORITY
-our $VERSION = '0.1404';
+our $VERSION = '0.1405';
 
 use XML::Rabbit::Root;
 use DateTime::Format::HTTP;

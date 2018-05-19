@@ -6,7 +6,7 @@ package OpenGbg::Service::StyrOchStall::GetBikeStations;
 
 # ABSTRACT: Get data on all bike stations
 # AUTHORITY
-our $VERSION = '0.1404';
+our $VERSION = '0.1405';
 
 use XML::Rabbit::Root;
 use DateTime::Format::HTTP;

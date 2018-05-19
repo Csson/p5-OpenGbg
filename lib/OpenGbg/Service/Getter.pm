@@ -5,7 +5,7 @@ use warnings;
 package OpenGbg::Service::Getter;
 
 # AUTHORITY
-our $VERSION = '0.1404';
+our $VERSION = '0.1405';
 
 use Moose::Role;
 use OpenGbg::Exceptions;

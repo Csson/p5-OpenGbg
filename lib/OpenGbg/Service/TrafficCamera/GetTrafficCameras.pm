@@ -6,7 +6,7 @@ package OpenGbg::Service::TrafficCamera::GetTrafficCameras;
 
 # ABSTRACT: Get a list of traffic cameras
 # AUTHORITY
-our $VERSION = '0.1404';
+our $VERSION = '0.1405';
 
 use XML::Rabbit::Root;
 use Types::Standard qw/Str/;
