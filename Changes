@@ -2,6 +2,7 @@ Revision history for OpenGbg
 
 {{$NEXT}}
  [API Changes]
+ - Updated ::TrafficCamera to API version 0.2, which adds lat/long information to the camera devices.
 
  [Bug Fixes]
 
